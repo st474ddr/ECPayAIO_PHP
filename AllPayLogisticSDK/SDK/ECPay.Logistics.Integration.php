@@ -1,6 +1,6 @@
 <?php
 	/**
-	 * allPay Logistics integration
+	 * ECPay Logistics integration
 	 *
 	 * @version 1.1
 	 * @author  Shawn.Chang
@@ -34,41 +34,41 @@
 	}
 	
     // 測試廠商編號
-	abstract class AllpayTestMerchantID {
+	abstract class ECPayTestMerchantID {
 		const B2C = '2000132';// B2C
 		const C2C = '2000933';// C2C
 	}
 	
     // 正式環境網址
-	abstract class AllpayURL {
-		const CVS_MAP = 'https://logistics.allpay.com.tw/Express/map';// 電子地圖
-		const SHIPPING_ORDER = 'https://logistics.allpay.com.tw/Express/Create';// 物流訂單建立
-		const HOME_RETURN_ORDER = 'https://logistics.allpay.com.tw/Express/ReturnHome';// 宅配逆物流訂單
-		const FAMILY_RETURN_ORDER = 'https://logistics.allpay.com.tw/express/ReturnCVS';// 超商取貨逆物流訂單(全家超商B2C)
-		const FAMILY_RETURN_CHECK = 'https://logistics.allpay.com.tw/Helper/LogisticsCheckAccoounts';// 全家逆物流核帳(全家超商B2C)
-		const UNIMART_UPDATE_LOGISTICS_INFO = 'https://logistics.allpay.com.tw/Helper/UpdateShipmentInfo';// 統一修改物流資訊(全家超商B2C)
-		const UNIMART_UPDATE_STORE_INFO = 'https://logistics.allpay.com.tw/Express/UpdateStoreInfo';// 更新門市(統一超商C2C)
-		const UNIMART_CANCEL_LOGISTICS_ORDER = 'https://logistics.allpay.com.tw/Express/CancelC2COrder';// 取消訂單(統一超商C2C)
-		const QUERY_LOGISTICS_INFO = 'https://logistics.allpay.com.tw/Helper/QueryLogisticsTradeInfo';// 物流訂單查詢
-		const PRINT_TRADE_DOC = 'https://logistics.allpay.com.tw/helper/printTradeDocument';// 產生托運單(宅配)/一段標(超商取貨)
-		const PRINT_UNIMART_C2C_BILL = 'https://logistics.allpay.com.tw/Express/PrintUniMartC2COrderInfo';// 列印繳款單(統一超商C2C)
-		const PRINT_FAMILY_C2C_BILL = 'https://logistics.allpay.com.tw/Express/PrintFAMIC2COrderInfo';// 全家列印小白單(全家超商C2C)
+	abstract class ECPayURL {
+		const CVS_MAP = 'https://logistics.ecpay.com.tw/Express/map';// 電子地圖
+		const SHIPPING_ORDER = 'https://logistics.ecpay.com.tw/Express/Create';// 物流訂單建立
+		const HOME_RETURN_ORDER = 'https://logistics.ecpay.com.tw/Express/ReturnHome';// 宅配逆物流訂單
+		const FAMILY_RETURN_ORDER = 'https://logistics.ecpay.com.tw/express/ReturnCVS';// 超商取貨逆物流訂單(全家超商B2C)
+		const FAMILY_RETURN_CHECK = 'https://logistics.ecpay.com.tw/Helper/LogisticsCheckAccoounts';// 全家逆物流核帳(全家超商B2C)
+		const UNIMART_UPDATE_LOGISTICS_INFO = 'https://logistics.ecpay.com.tw/Helper/UpdateShipmentInfo';// 統一修改物流資訊(全家超商B2C)
+		const UNIMART_UPDATE_STORE_INFO = 'https://logistics.ecpay.com.tw/Express/UpdateStoreInfo';// 更新門市(統一超商C2C)
+		const UNIMART_CANCEL_LOGISTICS_ORDER = 'https://logistics.ecpay.com.tw/Express/CancelC2COrder';// 取消訂單(統一超商C2C)
+		const QUERY_LOGISTICS_INFO = 'https://logistics.ecpay.com.tw/Helper/QueryLogisticsTradeInfo';// 物流訂單查詢
+		const PRINT_TRADE_DOC = 'https://logistics.ecpay.com.tw/helper/printTradeDocument';// 產生托運單(宅配)/一段標(超商取貨)
+		const PRINT_UNIMART_C2C_BILL = 'https://logistics.ecpay.com.tw/Express/PrintUniMartC2COrderInfo';// 列印繳款單(統一超商C2C)
+		const PRINT_FAMILY_C2C_BILL = 'https://logistics.ecpay.com.tw/Express/PrintFAMIC2COrderInfo';// 全家列印小白單(全家超商C2C)
 	}
 	
     // 正式測試環境網址
-	abstract class AllpayTestURL {
-        const CVS_MAP = 'https://logistics.allpay.com.tw/Express/map';// 電子地圖(測試環境有問題，直接使用正式環境URL)
-		const SHIPPING_ORDER = 'https://logistics-stage.allpay.com.tw/Express/Create';// 物流訂單建立
-		const HOME_RETURN_ORDER = 'https://logistics-stage.allpay.com.tw/Express/ReturnHome';// 宅配逆物流訂單
-		const FAMILY_RETURN_ORDER = 'https://logistics-stage.allpay.com.tw/express/ReturnCVS';// 超商取貨逆物流訂單(全家超商B2C)
-		const FAMILY_RETURN_CHECK = 'https://logistics-stage.allpay.com.tw/Helper/LogisticsCheckAccoounts';// 全家逆物流核帳(全家超商B2C)
-		const UNIMART_UPDATE_LOGISTICS_INFO = 'https://logistics-stage.allpay.com.tw/Helper/UpdateShipmentInfo';// 統一修改物流資訊(全家超商B2C)
-		const UNIMART_UPDATE_STORE_INFO = 'https://logistics-stage.allpay.com.tw/Express/UpdateStoreInfo';// 更新門市(統一超商C2C)
-		const UNIMART_CANCEL_LOGISTICS_ORDER = 'https://logistics-stage.allpay.com.tw/Express/CancelC2COrder';// 取消訂單(統一超商C2C)
-		const QUERY_LOGISTICS_INFO = 'https://logistics-stage.allpay.com.tw/Helper/QueryLogisticsTradeInfo';// 物流訂單查詢
-		const PRINT_TRADE_DOC = 'https://logistics-stage.allpay.com.tw/helper/printTradeDocument';// 產生托運單(宅配)/一段標(超商取貨)
-		const PRINT_UNIMART_C2C_BILL = 'https://logistics-stage.allpay.com.tw/Express/PrintUniMartC2COrderInfo';// 列印繳款單(統一超商C2C)
-		const PRINT_FAMILY_C2C_BILL = 'https://logistics-stage.allpay.com.tw/Express/PrintFAMIC2COrderInfo';// 全家列印小白單(全家超商C2C)
+	abstract class ECPayTestURL {
+        const CVS_MAP = 'https://logistics.ecpay.com.tw/Express/map';// 電子地圖(測試環境有問題，直接使用正式環境URL)
+		const SHIPPING_ORDER = 'https://logistics-stage.ecpay.com.tw/Express/Create';// 物流訂單建立
+		const HOME_RETURN_ORDER = 'https://logistics-stage.ecpay.com.tw/Express/ReturnHome';// 宅配逆物流訂單
+		const FAMILY_RETURN_ORDER = 'https://logistics-stage.ecpay.com.tw/express/ReturnCVS';// 超商取貨逆物流訂單(全家超商B2C)
+		const FAMILY_RETURN_CHECK = 'https://logistics-stage.ecpay.com.tw/Helper/LogisticsCheckAccoounts';// 全家逆物流核帳(全家超商B2C)
+		const UNIMART_UPDATE_LOGISTICS_INFO = 'https://logistics-stage.ecpay.com.tw/Helper/UpdateShipmentInfo';// 統一修改物流資訊(全家超商B2C)
+		const UNIMART_UPDATE_STORE_INFO = 'https://logistics-stage.ecpay.com.tw/Express/UpdateStoreInfo';// 更新門市(統一超商C2C)
+		const UNIMART_CANCEL_LOGISTICS_ORDER = 'https://logistics-stage.ecpay.com.tw/Express/CancelC2COrder';// 取消訂單(統一超商C2C)
+		const QUERY_LOGISTICS_INFO = 'https://logistics-stage.ecpay.com.tw/Helper/QueryLogisticsTradeInfo';// 物流訂單查詢
+		const PRINT_TRADE_DOC = 'https://logistics-stage.ecpay.com.tw/helper/printTradeDocument';// 產生托運單(宅配)/一段標(超商取貨)
+		const PRINT_UNIMART_C2C_BILL = 'https://logistics-stage.ecpay.com.tw/Express/PrintUniMartC2COrderInfo';// 列印繳款單(統一超商C2C)
+		const PRINT_FAMILY_C2C_BILL = 'https://logistics-stage.ecpay.com.tw/Express/PrintFAMIC2COrderInfo';// 全家列印小白單(全家超商C2C)
 	}
 	
     // 溫層
@@ -116,7 +116,7 @@
 		const RETURN_STORE = '02';// 退件門市
 	}
 	
-	class AllpayLogistics {
+	class ECPayLogistics {
 		public $ServiceURL = '';
 		public $HashKey = '';
 		public $HashIV = '';
@@ -1191,37 +1191,37 @@
 		
 		private function GetURL($FunctionType) {
 			$UrlList = array();
-			if ($this->PostParams['MerchantID'] == AllpayTestMerchantID::B2C or $this->PostParams['MerchantID'] == AllpayTestMerchantID::C2C) {
+			if ($this->PostParams['MerchantID'] == ECPayTestMerchantID::B2C or $this->PostParams['MerchantID'] == ECPayTestMerchantID::C2C) {
 				// 測試環境
 				$UrlList = array(
-					'CVS_MAP' => AllpayTestURL::CVS_MAP,
-					'SHIPPING_ORDER' => AllpayTestURL::SHIPPING_ORDER,
-					'HOME_RETURN_ORDER' => AllpayTestURL::HOME_RETURN_ORDER,
-					'FAMILY_RETURN_ORDER' => AllpayTestURL::FAMILY_RETURN_ORDER,
-					'FAMILY_RETURN_CHECK' => AllpayTestURL::FAMILY_RETURN_CHECK,
-					'UNIMART_UPDATE_LOGISTICS_INFO' => AllpayTestURL::UNIMART_UPDATE_LOGISTICS_INFO,
-					'UNIMART_UPDATE_STORE_INFO' => AllpayTestURL::UNIMART_UPDATE_STORE_INFO,
-					'UNIMART_CANCEL_LOGISTICS_ORDER' => AllpayTestURL::UNIMART_CANCEL_LOGISTICS_ORDER,
-					'QUERY_LOGISTICS_INFO' => AllpayTestURL::QUERY_LOGISTICS_INFO,
-					'PRINT_TRADE_DOC' => AllpayTestURL::PRINT_TRADE_DOC,
-					'PRINT_UNIMART_C2C_BILL' => AllpayTestURL::PRINT_UNIMART_C2C_BILL,
-					'PRINT_FAMILY_C2C_BILL' => AllpayTestURL::PRINT_FAMILY_C2C_BILL,
+					'CVS_MAP' => ECPayTestURL::CVS_MAP,
+					'SHIPPING_ORDER' => ECPayTestURL::SHIPPING_ORDER,
+					'HOME_RETURN_ORDER' => ECPayTestURL::HOME_RETURN_ORDER,
+					'FAMILY_RETURN_ORDER' => ECPayTestURL::FAMILY_RETURN_ORDER,
+					'FAMILY_RETURN_CHECK' => ECPayTestURL::FAMILY_RETURN_CHECK,
+					'UNIMART_UPDATE_LOGISTICS_INFO' => ECPayTestURL::UNIMART_UPDATE_LOGISTICS_INFO,
+					'UNIMART_UPDATE_STORE_INFO' => ECPayTestURL::UNIMART_UPDATE_STORE_INFO,
+					'UNIMART_CANCEL_LOGISTICS_ORDER' => ECPayTestURL::UNIMART_CANCEL_LOGISTICS_ORDER,
+					'QUERY_LOGISTICS_INFO' => ECPayTestURL::QUERY_LOGISTICS_INFO,
+					'PRINT_TRADE_DOC' => ECPayTestURL::PRINT_TRADE_DOC,
+					'PRINT_UNIMART_C2C_BILL' => ECPayTestURL::PRINT_UNIMART_C2C_BILL,
+					'PRINT_FAMILY_C2C_BILL' => ECPayTestURL::PRINT_FAMILY_C2C_BILL,
 				);
 			} else {
 				// 正式環境
 				$UrlList = array(
-					'CVS_MAP' => AllpayURL::CVS_MAP,
-					'SHIPPING_ORDER' => AllpayURL::SHIPPING_ORDER,
-					'HOME_RETURN_ORDER' => AllpayURL::HOME_RETURN_ORDER,
-					'FAMILY_RETURN_ORDER' => AllpayURL::FAMILY_RETURN_ORDER,
-					'FAMILY_RETURN_CHECK' => AllpayURL::FAMILY_RETURN_CHECK,
-					'UNIMART_UPDATE_LOGISTICS_INFO' => AllpayURL::UNIMART_UPDATE_LOGISTICS_INFO,
-					'UNIMART_UPDATE_STORE_INFO' => AllpayURL::UNIMART_UPDATE_STORE_INFO,
-					'UNIMART_CANCEL_LOGISTICS_ORDER' => AllpayURL::UNIMART_CANCEL_LOGISTICS_ORDER,
-					'QUERY_LOGISTICS_INFO' => AllpayURL::QUERY_LOGISTICS_INFO,
-					'PRINT_TRADE_DOC' => AllpayURL::PRINT_TRADE_DOC,
-					'PRINT_UNIMART_C2C_BILL' => AllpayURL::PRINT_UNIMART_C2C_BILL,
-					'PRINT_FAMILY_C2C_BILL' => AllpayURL::PRINT_FAMILY_C2C_BILL,
+					'CVS_MAP' => ECPayURL::CVS_MAP,
+					'SHIPPING_ORDER' => ECPayURL::SHIPPING_ORDER,
+					'HOME_RETURN_ORDER' => ECPayURL::HOME_RETURN_ORDER,
+					'FAMILY_RETURN_ORDER' => ECPayURL::FAMILY_RETURN_ORDER,
+					'FAMILY_RETURN_CHECK' => ECPayURL::FAMILY_RETURN_CHECK,
+					'UNIMART_UPDATE_LOGISTICS_INFO' => ECPayURL::UNIMART_UPDATE_LOGISTICS_INFO,
+					'UNIMART_UPDATE_STORE_INFO' => ECPayURL::UNIMART_UPDATE_STORE_INFO,
+					'UNIMART_CANCEL_LOGISTICS_ORDER' => ECPayURL::UNIMART_CANCEL_LOGISTICS_ORDER,
+					'QUERY_LOGISTICS_INFO' => ECPayURL::QUERY_LOGISTICS_INFO,
+					'PRINT_TRADE_DOC' => ECPayURL::PRINT_TRADE_DOC,
+					'PRINT_UNIMART_C2C_BILL' => ECPayURL::PRINT_UNIMART_C2C_BILL,
+					'PRINT_FAMILY_C2C_BILL' => ECPayURL::PRINT_FAMILY_C2C_BILL,
 				);
 			}
 			
@@ -1235,14 +1235,14 @@
 		private function GenPostHTML($ButtonDesc = '', $Target = '_self') {
 			// 產生 POST form HTML
 			$PostHTML = $this->NextLine('<div style="text-align:center;">');
-			$PostHTML .= $this->NextLine('  <form id="allpayForm" method="POST" action="' . $this->ServiceURL . '" target="' . $Target . '">');
+			$PostHTML .= $this->NextLine('  <form id="ECPayForm" method="POST" action="' . $this->ServiceURL . '" target="' . $Target . '">');
 			foreach ($this->PostParams as $Name => $Value) {
 				$PostHTML .= $this->NextLine('    <input type="hidden" name="' . $Name . '" value="' . $Value . '" />');
 			}
 			if (!empty($ButtonDesc)) {
 				$PostHTML .= $this->NextLine('    <input type="submit" id="__paymentButton" value="' . $ButtonDesc . '" />');
 			} else {
-				$PostHTML .= $this->NextLine('<script>document.getElementById("allpayForm").submit();</script>');
+				$PostHTML .= $this->NextLine('<script>document.getElementById("ECPayForm").submit();</script>');
 			}
 			$PostHTML .= $this->NextLine('  </form>');
 			$PostHTML .= $this->NextLine('</div>');
@@ -1256,7 +1256,7 @@
 		
 		private function GenCheckMacValue($ParamList, $HashKey, $HashIV) {
 			// CheckMacValue
-            uksort($ParamList, array('AllpayLogistics','MerchantSort'));
+            uksort($ParamList, array('ECPayLogistics','MerchantSort'));
 			$CheckMacValue = 'HashKey=' . $HashKey;
 			foreach ($ParamList as $ParamName => $ParamValue) {
 				$CheckMacValue .= '&' . $ParamName . '=' . $ParamValue;
