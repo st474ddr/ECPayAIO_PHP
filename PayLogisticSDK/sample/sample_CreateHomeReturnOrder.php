@@ -1,9 +1,9 @@
 ﻿<?php
     // 宅配逆物流訂單建立
     define('HOME_URL', 'http://www.sample.com.tw/logistics_dev');
-    require('AllPay.Logistics.Integration.php');
+    require('ECPay.Logistics.Integration.php');
     try {
-        $AL = new AllpayLogistics();
+        $AL = new ECPayLogistics();
         $AL->HashKey = '5294y06JbISpM5x9';
         $AL->HashIV = 'v77hoKGq4kWxNNIS';
         $AL->Send = array(

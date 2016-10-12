@@ -1,8 +1,8 @@
 ﻿<?php
     // 廠商修改物流資訊(統一超商B2C)
-    require('AllPay.Logistics.Integration.php');
+    require('ECPay.Logistics.Integration.php');
     try {
-        $AL = new AllpayLogistics();
+        $AL = new ECPayLogistics();
         $AL->HashKey = '5294y06JbISpM5x9';
         $AL->HashIV = 'v77hoKGq4kWxNNIS';
         $AL->Send = array(

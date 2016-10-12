@@ -1,9 +1,9 @@
 ﻿<?php
     // 電子地圖
     define('HOME_URL', 'http://www.sample.com.tw/logistics_dev');
-    require('AllPay.Logistics.Integration.php');
+    require('ECPay.Logistics.Integration.php');
     try {
-        $AL = new AllpayLogistics();
+        $AL = new ECPayLogistics();
         $AL->Send = array(
             'MerchantID' => '2000132',
             'MerchantTradeNo' => 'no' . date('YmdHis'),

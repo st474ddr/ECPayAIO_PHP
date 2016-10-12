@@ -1,8 +1,8 @@
 ﻿<?php
     // 產生托運單(宅配)/一段標(超商取貨)
-    require('AllPay.Logistics.Integration.php');
+    require('ECPay.Logistics.Integration.php');
     try {
-        $AL = new AllpayLogistics();
+        $AL = new ECPayLogistics();
         $AL->HashKey = '5294y06JbISpM5x9';
         $AL->HashIV = 'v77hoKGq4kWxNNIS';
         $AL->Send = array(
