@@ -9,6 +9,7 @@
         $AL->Send = array(
             'MerchantID' => '2000132',
             'AllPayLogisticsID' => '15609',
+			"LogisticsSubType" => LogisticsSubType::TCAT,
             'SenderName' => '測試寄件者',
             'SenderPhone' => '0226550115',
             'SenderCellPhone' => '0933222111',
@@ -21,6 +22,7 @@
             'ReceiverZipCode' => '11560',
             'ReceiverAddress' => '台北市南港區三重路19-2號5樓D棟',
             'ServerReplyURL' => HOME_URL . '/ServerReplyURL.php',
+			'GoodsAmount' => 1,
             'PlatformID' => '',
         );
         // CreateHomeReturnOrder()

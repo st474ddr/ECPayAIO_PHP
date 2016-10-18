@@ -1,18 +1,31 @@
 <?php
 	/**
-	 * ECPay Logistics integration
+	 * ECPay 物流 SDK 
 	 *
-	 * @version 1.1
-	 * @author  Shawn.Chang
+	 * @author		https://www.ecpay.com.tw
+	 * @version		1.0.1012
 	 */
   
-    // 物流類型
+  
+	/**
+	 *  物流類型
+	 *
+	 * @author		https://www.ecpay.com.tw
+	 * @category	Options
+	 * @version		1.0.1012
+	 */
 	abstract class LogisticsType {		
 		const CVS = 'CVS';// 超商取貨
 		const HOME = 'Home';// 宅配
 	}
 	
-    // 物流子類型
+	/**
+	 *  物流子類型
+	 *
+	 * @author		https://www.ecpay.com.tw
+	 * @category	Options
+	 * @version		1.0.1012
+	 */
 	abstract class LogisticsSubType {			
 		const TCAT = 'TCAT';// 黑貓(宅配)
 		const FAMILY = 'FAMI';// 全家
@@ -21,25 +34,49 @@
 		const UNIMART_C2C = 'UNIMARTC2C';// 統一超商寄貨便
 	}
 	
-    // 是否代收貨款
+	/**
+	 *  是否代收貨款
+	 *
+	 * @author		https://www.ecpay.com.tw
+	 * @category	Options
+	 * @version		1.0.1012
+	 */
 	abstract class IsCollection {
 		const YES = 'Y';// 貨到付款
 		const NO = 'N';// 僅配送
 	}
 	
-    // 使用設備
+	/**
+	 *  使用設備
+	 *
+	 * @author		https://www.ecpay.com.tw
+	 * @category	Options
+	 * @version		1.0.1012
+	 */
 	abstract class Device {
 		const PC = 0;// PC
 		const MOBILE = 1;// 行動裝置
 	}
 	
-    // 測試廠商編號
+	/**
+	 *  測試廠商編號
+	 *
+	 * @author		https://www.ecpay.com.tw
+	 * @category	Options
+	 * @version		1.0.1012
+	 */
 	abstract class ECPayTestMerchantID {
 		const B2C = '2000132';// B2C
 		const C2C = '2000933';// C2C
 	}
 	
-    // 正式環境網址
+	/**
+	 *  正式環境網址
+	 *
+	 * @author		https://www.ecpay.com.tw
+	 * @category	Options
+	 * @version		1.0.1012
+	 */
 	abstract class ECPayURL {
 		const CVS_MAP = 'https://logistics.ecpay.com.tw/Express/map';// 電子地圖
 		const SHIPPING_ORDER = 'https://logistics.ecpay.com.tw/Express/Create';// 物流訂單建立
@@ -55,7 +92,13 @@
 		const PRINT_FAMILY_C2C_BILL = 'https://logistics.ecpay.com.tw/Express/PrintFAMIC2COrderInfo';// 全家列印小白單(全家超商C2C)
 	}
 	
-    // 正式測試環境網址
+	/**
+	 *  正式測試環境網址
+	 *
+	 * @author		https://www.ecpay.com.tw
+	 * @category	Options
+	 * @version		1.0.1012
+	 */
 	abstract class ECPayTestURL {
         const CVS_MAP = 'https://logistics.ecpay.com.tw/Express/map';// 電子地圖(測試環境有問題，直接使用正式環境URL)
 		const SHIPPING_ORDER = 'https://logistics-stage.ecpay.com.tw/Express/Create';// 物流訂單建立
@@ -71,21 +114,39 @@
 		const PRINT_FAMILY_C2C_BILL = 'https://logistics-stage.ecpay.com.tw/Express/PrintFAMIC2COrderInfo';// 全家列印小白單(全家超商C2C)
 	}
 	
-    // 溫層
+	/**
+	 *  溫層
+	 *
+	 * @author		https://www.ecpay.com.tw
+	 * @category	Options
+	 * @version		1.0.1012
+	 */
 	abstract class Temperature {
 		const ROOM = '0001';// 常溫
 		const REFRIGERATION = '0002';// 冷藏
 		const FREEZE = '0003';// 冷凍
 	}
 	
-    // 距離
+	/**
+	 *  距離
+	 *
+	 * @author		https://www.ecpay.com.tw
+	 * @category	Options
+	 * @version		1.0.1012
+	 */
 	abstract class Distance {
 		const SAME = '00';// 同縣市
 		const OTHER = '01';// 外縣市
 		const ISLAND = '02';// 離島
 	}
 	
-    // 規格
+	/**
+	 *  規格
+	 *
+	 * @author		https://www.ecpay.com.tw
+	 * @category	Options
+	 * @version		1.0.1012
+	 */
 	abstract class Specification {
 		const CM_60 = '0001';// 60cm
 		const CM_90 = '0002';// 90cm
@@ -93,7 +154,13 @@
 		const CM_150 = '0004';// 150cm
 	}
 	
-    // 預計取件時段
+	/**
+	 *  預計取件時段
+	 *
+	 * @author		https://www.ecpay.com.tw
+	 * @category	Options
+	 * @version		1.0.1012
+	 */
 	abstract class ScheduledPickupTime {
 		const TIME_9_12 = '1';// 9~12時
 		const TIME_12_17 = '2';// 12~17時
@@ -101,7 +168,13 @@
 		const UNLIMITED = '4';// 不限時
 	}
 	
-    // 預定送達時段
+	/**
+	 *  預定送達時段
+	 *
+	 * @author		https://www.ecpay.com.tw
+	 * @category	Options
+	 * @version		1.0.1012
+	 */
 	abstract class ScheduledDeliveryTime {
 		const TIME_9_12 = '1';// 9~12時
 		const TIME_12_17 = '2';// 12~17時
@@ -110,29 +183,48 @@
 		const TIME_20_21 = '5';// 20~21時(需限定區域)
 	}
 	
-    // 門市類型
+	/**
+	 *  門市類型
+	 *
+	 * @author		https://www.ecpay.com.tw
+	 * @category	Options
+	 * @version		1.0.1012
+	 */
 	abstract class StoreType {
 		const RECIVE_STORE = '01';// 取件門市
 		const RETURN_STORE = '02';// 退件門市
 	}
 	
+	
+	
+	/**
+	 *  物流 SDK
+	 *
+	 * @author		https://www.ecpay.com.tw
+	 * @category	Options
+	 * @version		1.0.1012
+	 */
 	class ECPayLogistics {
 		public $ServiceURL = '';
 		public $HashKey = '';
 		public $HashIV = '';
-		public $Send = '';
+		public $Send = array();
 		public $SendExtend = '';
-		public $PostParameters = '';
-		public $Error = '';
+		public $PostParams = array();
 		public $Encode = 'UTF-8';
 		
-		public function __construct() {
-			$this->Send = array();
-			$this->Error = array();
-			$this->PostParams = array();
-		}
+		public function __construct() {}
 		
-		// 電子地圖
+		/**
+		 *  電子地圖
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK
+		 * @param		String $ButtonDesc 按鈕顯示名稱
+		 * @param		String $Target 表單 action 目標
+		 * @return		String
+		 * @version		1.0.1012
+		 */
 		public function CvsMap($ButtonDesc = '電子地圖', $Target = '_self') {
 			// 參數初始化
 			$ParamList = array(
@@ -160,7 +252,16 @@
 			return $this->GenPostHTML($ButtonDesc, $Target);
 		}
 		
-		// 物流訂單建立
+		/**
+		 *  物流訂單建立
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK
+		 * @param		String $ButtonDesc 按鈕顯示名稱
+		 * @param		String $Target 表單 action 目標
+		 * @return		String
+		 * @version		1.0.1012
+		 */
 		public function CreateShippingOrder($ButtonDesc = '物流訂單建立', $Target = '_self') {
 			// 參數初始化
 			$ParamList = array(
@@ -188,6 +289,8 @@
 				'PlatformID' => ''
 			);
 			$this->PostParams = $this->GetPostParams($this->Send, $ParamList);
+			$MinAmount = 1; // 金額下限
+			$MaxAmount = 20000; // 金額上限
 			
 			// 參數檢查
             $this->ValidateHashKey();
@@ -239,9 +342,6 @@
 			}
 			
 			$this->ValidateAmount('GoodsAmount', $this->PostParams['GoodsAmount']);
-			// 取得最金額限制
-			$MinAmount = 1;
-			$MaxAmount = 20000;
 			if ($this->PostParams['LogisticsSubType'] == LogisticsSubType::UNIMART_C2C) {
 				// 物流子類型(LogisticsSubType)為統一超商交貨便(UNIMARTC2C)時，商品金額範圍為1~19,999元
 				$MaxAmount = 19999;
@@ -326,7 +426,14 @@
 			return $this->GenPostHTML($ButtonDesc, $Target);
 		}
         
-        // 幕後物流訂單建立
+		/**
+		 *  幕後物流訂單建立
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK
+		 * @return		Array
+		 * @version		1.0.1012
+		 */
 		public function BGCreateShippingOrder() {
 			// 參數初始化
 			$ParamList = array(
@@ -359,6 +466,8 @@
             }
             
 			$this->PostParams = $this->GetPostParams($this->Send, $ParamList);
+			$MinAmount = 1; // 金額下限
+			$MaxAmount = 20000; // 金額上限
 			
 			// 參數檢查
             $this->ValidateHashKey();
@@ -410,9 +519,6 @@
 			}
 			
 			$this->ValidateAmount('GoodsAmount', $this->PostParams['GoodsAmount']);
-			// 取得最金額限制
-			$MinAmount = 1;
-			$MaxAmount = 20000;
 			if ($this->PostParams['LogisticsSubType'] == LogisticsSubType::UNIMART_C2C) {
 				// 物流子類型(LogisticsSubType)為統一超商交貨便(UNIMARTC2C)時，商品金額範圍為1~19,999元
 				$MaxAmount = 19999;
@@ -511,7 +617,14 @@
             return $Result;
 		}
 
-		// 回傳 CheckMacValue 檢查
+		/**
+		 *  回傳 CheckMacValue 檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK
+		 * @param		Array $Feedback ECPay 回傳資料
+		 * @version		1.0.1012
+		 */
 		public function CheckOutFeedback($Feedback = array()) {
 			
             $this->ValidateHashKey();
@@ -535,13 +648,22 @@
 			}
 		}
 	
-		// 宅配逆物流訂單產生
+		/**
+		 *  宅配逆物流訂單產生
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK
+		 * @return		Array
+		 * @version		1.0.1012
+		 */
 		public function CreateHomeReturnOrder() {
 			
 			// 參數初始化
 			$ParamList = array(
-				'MerchantID' => '',
+				'MerchantID' => '',			
 				'AllPayLogisticsID' => '',
+				'LogisticsSubType' => '',
+				'ServerReplyURL' => '',
 				'SenderName' => '',
 				'SenderPhone' => '',
 				'SenderCellPhone' => '',
@@ -550,32 +672,94 @@
 				'ReceiverName' => '',
 				'ReceiverPhone' => '',
 				'ReceiverCellPhone' => '',
-				'ReceiverEmail' => '',
 				'ReceiverZipCode' => '',
 				'ReceiverAddress' => '',
-				'ServerReplyURL' => '',
+				'GoodsAmount' => '',
+				'GoodsName' => '',
+				'Temperature' => Temperature::ROOM,
+				'Distance' => Distance::SAME,
+				'Specification' => Specification::CM_60,
+				'ScheduledPickupTime' => ScheduledPickupTime::UNLIMITED,
+				'ScheduledDeliveryTime' => '',
+				'Remark' => '',
 				'PlatformID' => ''
 			);
 			$this->PostParams = $this->GetPostParams($this->Send, $ParamList);
+			$this->PostParams['ScheduledPickupTime'] = ScheduledPickupTime::UNLIMITED; // 預定取件時段(ScheduledPickupTime)固定為不限時
+			$this->PostParams['LogisticsType'] = LogisticsType::HOME; // 物流類型固定為宅配(HOME)
+			$IsAllpayLogisticsIdEmpty = false; // 物流交易編號(AllPayLogisticsID)是否為空
+			$IsAllowEmpty = false;
+			$MinAmount = 1; // 金額下限
+			$MaxAmount = 20000; // 金額上限
 			
 			// 參數檢查
             $this->ValidateHashKey();
             $this->ValidateHashIV();
 			$this->ValidateID('MerchantID', $this->PostParams['MerchantID'], 10);
 			$this->ServiceURL = $this->GetURL('HOME_RETURN_ORDER');
-			$this->ValidateID('AllPayLogisticsID', $this->PostParams['AllPayLogisticsID'], 20);
-			$this->ValidateString('SenderName', $this->PostParams['SenderName'], 60, true);
+			
+			$this->ValidateID('AllPayLogisticsID', $this->PostParams['AllPayLogisticsID'], 20, true);
+			$this->ValidateLogisticsSubType(false);
+			// 物流交易編號(AllPayLogisticsID)與物流子類型(LogisticsSubType)擇一不可為空
+			if (empty($this->PostParams['AllPayLogisticsID'])) {
+				$IsAllpayLogisticsIdEmpty = true;
+			}
+			if ($IsAllpayLogisticsIdEmpty === true and empty($this->PostParams['LogisticsSubType'])) {
+				throw new Exception('One of AllPayLogisticsID and LogisticsSubType is required.');
+			}
+			
+			$this->ValidateURL('ServerReplyURL', $this->PostParams['ServerReplyURL']);
+			
+			// 物流交易編號(AllPayLogisticsID)為空值時，退貨人姓名(SenderName)不可為空。
+			if ($IsAllpayLogisticsIdEmpty) {
+				$IsAllowEmpty = false;
+			}
+			$this->ValidateString('SenderName', $this->PostParams['SenderName'], 60, $IsAllowEmpty);
+			
 			$this->ValidatePhoneNumber('SenderPhone', $this->PostParams['SenderPhone'], true);
 			$this->ValidatePhoneNumber('SenderCellPhone', $this->PostParams['SenderCellPhone'], true);
-			$this->ValidateZipCode('SenderZipCode', $this->PostParams['SenderZipCode'], true);
-			$this->ValidateString('SenderAddress', $this->PostParams['SenderAddress'], 200, true);
-			$this->ValidateString('ReceiverName', $this->PostParams['ReceiverName'], 60, true);
+			// 物流交易編號(AllPayLogisticsID)為空值時，退貨人電話(SenderPhone)與退貨人手機(SenderCellPhone)擇一不可為空。
+			if ($IsAllpayLogisticsIdEmpty) {
+				if (empty($this->PostParams['SenderPhone']) and empty($this->PostParams['SenderCellPhone'])) {
+					throw new Exception('One of SenderPhone and SenderCellPhone is required.');
+				}
+			}
+			
+			// 物流交易編號(AllPayLogisticsID)為空值時，退貨人郵遞區號(SenderZipCode)不可為空。
+			$this->ValidateZipCode('SenderZipCode', $this->PostParams['SenderZipCode'], $IsAllowEmpty);
+			
+			// 物流交易編號(AllPayLogisticsID)為空值時，SenderAddress(SenderAddress)不可為空。
+			$this->ValidateString('SenderAddress', $this->PostParams['SenderAddress'], 200, $IsAllowEmpty);
+			
+			// 若物流交易編號(AllPayLogisticsID)為空值時，收件人姓名(ReceiverName)不可為空。
+			$this->ValidateString('ReceiverName', $this->PostParams['ReceiverName'], 10, $IsAllowEmpty);
+			
 			$this->ValidatePhoneNumber('ReceiverPhone', $this->PostParams['ReceiverPhone'], 20, true);
 			$this->ValidatePhoneNumber('ReceiverCellPhone', $this->PostParams['ReceiverCellPhone'], 20, true);
-			$this->ValidateString('ReceiverEmail', $this->PostParams['ReceiverEmail'], 100, true);
-            $this->ValidateZipCode('ReceiverZipCode', $this->PostParams['ReceiverZipCode'], true);
-			$this->ValidateString('ReceiverAddress', $this->PostParams['ReceiverAddress'], 200, true);
-			$this->ValidateURL('ServerReplyURL', $this->PostParams['ServerReplyURL']);
+			// 物流交易編號(AllPayLogisticsID)為空值時，收件人電話(ReceiverPhone)與收件人手機(ReceiverCellPhone)擇一不可為空。
+			if ($IsAllpayLogisticsIdEmpty) {
+				if (empty($this->PostParams['ReceiverPhone']) and empty($this->PostParams['ReceiverCellPhone'])) {
+					throw new Exception('One of ReceiverPhone and ReceiverCellPhone is required.');
+				}
+			}
+			
+			// 若物流交易編號(AllPayLogisticsID)為空值時，收件人郵遞區號(ReceiverZipCode)不可為空。
+            $this->ValidateZipCode('ReceiverZipCode', $this->PostParams['ReceiverZipCode'], $IsAllowEmpty);
+			
+			// 若物流交易編號(AllPayLogisticsID)為空值時，收件人地址(ReceiverAddress)不可為空。
+			$this->ValidateString('ReceiverAddress', $this->PostParams['ReceiverAddress'], 200, $IsAllowEmpty);
+			
+			$this->ValidateAmount('GoodsAmount', $this->PostParams['GoodsAmount']);
+			if ($this->PostParams['GoodsAmount'] < $MinAmount or $this->PostParams['GoodsAmount'] > $MaxAmount){
+				throw new Exception('Invalid GoodsAmount.');
+			}			
+			$this->ValidateString('GoodsName', $this->PostParams['GoodsName'], 60, true);
+			$this->ValidateTemperature();
+			$this->ValidateDistance();
+			$this->ValidateSpecification();
+			$this->ValidateScheduledDeliveryTime(true);
+			$this->ValidateString('Remark', $this->PostParams['Remark'], 200, true);
+			
 			$this->ValidateID('PlatformID', $this->PostParams['PlatformID'], 10, true);
 			
 			// 產生 CheckMacValue
@@ -590,7 +774,14 @@
 			return $Result;
 		}
 		
-		// 超商取貨逆物流訂單(全家超商B2C)
+		/**
+		 *  超商取貨逆物流訂單(全家超商B2C)
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK
+		 * @return		Array
+		 * @version		1.0.1012
+		 */
 		public function CreateFamilyB2CReturnOrder() {
 			
 			// 參數初始化
@@ -669,7 +860,14 @@
 			return $Result;
 		}
 		
-		// 全家逆物流核帳(全家超商B2C)
+		/**
+		 *  全家逆物流核帳(全家超商B2C)
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK
+		 * @return		Array
+		 * @version		1.0.1012
+		 */
 		public function CheckFamilyB2CLogistics() {
 			
 			// 參數初始化
@@ -700,7 +898,14 @@
 			return $Result;
 		}
 
-		// 廠商修改出貨日期、取貨門市(統一超商B2C)
+		/**
+		 *  廠商修改出貨日期、取貨門市(統一超商B2C)
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK
+		 * @return		Array
+		 * @version		1.0.1012
+		 */
 		public function UpdateUnimartLogisticsInfo() {
 			
 			// 參數初始化
@@ -740,7 +945,14 @@
 			return $Result;
 		}
 
-		// 更新門市(統一超商C2C)
+		/**
+		 *  更新門市(統一超商C2C)
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK
+		 * @return		Array
+		 * @version		1.0.1012
+		 */
 		public function UpdateUnimartStore() {
 			
 			// 參數初始化
@@ -792,7 +1004,14 @@
 			return $Result;
 		}
 		
-		// 取消訂單(統一超商C2C)
+		/**
+		 *  取消訂單(統一超商C2C)
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK
+		 * @return		Array
+		 * @version		1.0.1012
+		 */
 		public function CancelUnimartLogisticsOrder() {
 			
 			// 參數初始化
@@ -827,7 +1046,14 @@
 			return $Result;
 		}
 		
-		// 物流訂單查詢
+		/**
+		 *  物流訂單查詢
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK
+		 * @return		Array
+		 * @version		1.0.1012
+		 */
 		public function QueryLogisticsInfo() {
 			
 			// 參數初始化
@@ -859,7 +1085,16 @@
 			return $Result;
 		}
 		
-		// 產生托運單(宅配)/一段標(超商取貨)
+		/**
+		 *  產生托運單(宅配)/一段標(超商取貨)
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK
+		 * @param		String $ButtonDesc 按鈕顯示名稱
+		 * @param		String $Target 表單 action 目標
+		 * @return		String
+		 * @version		1.0.1012
+		 */
 		public function PrintTradeDoc($ButtonDesc = '產生托運單/一段標', $Target = '_blank') {
 			
 			// 參數初始化
@@ -884,7 +1119,16 @@
 			return $this->GenPostHTML($ButtonDesc, $Target);
 		}
 		
-		// 列印繳款單(統一超商C2C)
+		/**
+		 *  列印繳款單(統一超商C2C)
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK
+		 * @param		String $ButtonDesc 按鈕顯示名稱
+		 * @param		String $Target 表單 action 目標
+		 * @return		String
+		 * @version		1.0.1012
+		 */
 		public function PrintUnimartC2CBill($ButtonDesc = '列印繳款單(統一超商C2C)', $Target = '_blank') {
 			
 			// 參數初始化
@@ -913,8 +1157,16 @@
 			return $this->GenPostHTML($ButtonDesc, $Target);
 		}
 	
-	
-		// 全家列印小白單(全家超商C2C)
+		/**
+		 *  全家列印小白單(全家超商C2C)
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK
+		 * @param		String $ButtonDesc 按鈕顯示名稱
+		 * @param		String $Target 表單 action 目標
+		 * @return		String
+		 * @version		1.0.1012
+		 */
 		public function PrintFamilyC2CBill($ButtonDesc = '全家列印小白單(全家超商C2C)', $Target = '_blank') {
 			
 			// 參數初始化
@@ -941,257 +1193,654 @@
 			return $this->GenPostHTML($ButtonDesc, $Target);
 		}
 		
+		
+		
+		/**
+		 *  Hash Key 檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @version		1.0.1012
+		 */
         private function ValidateHashKey(){
-            if (empty($this->HashKey)) {
-                throw new Exception('HashKey is required.');
-            }
+			$Name = 'HashKey'; // 參數名稱
+			$Value = $this->HashKey; // 參數內容
+			$AllowEmpty = false; // 是否允許空值
+			
+			if (empty($Value)) {
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			}
         }
     
+		/**
+		 *  Hash IV 檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @version		1.0.1012
+		 */
         private function ValidateHashIV(){
-            if (empty($this->HashIV)) {
-                throw new Exception('HashIV is required.');
-            }
+			$Name = 'HashIV'; // 參數名稱
+			$Value = $this->HashKey; // 參數內容
+			$AllowEmpty = false; // 是否允許空值
+			
+			if (empty($Value)) {
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			}
         }
 	
+		/**
+		 *  ID 檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		String	$Name		參數名稱
+		 * @param		String	$Value		參數內容
+		 * @param		Integer	$MaxLength	參數最大長度
+		 * @param		Boolean	$AllowEmpty	是否允許空值
+		 * @version		1.0.1012
+		 */
 		private function ValidateID($Name, $Value, $MaxLength = 1, $AllowEmpty = false) {
 			if (empty($Value)) {
-				if (!$AllowEmpty) {
-					throw new Exception($Name . ' is required.');
-				}
-			} else if (!preg_match('/^\d{1,' . $MaxLength . '}$/', $Value)){
-				throw new Exception('Invalid ' . $Name . '.');
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 格式檢查
+				$this->IsValidFormat($Name, '/^\d{1,' . $MaxLength . '}$/', $Value);
 			}
 		}
 		
+		/**
+		 *  URL 檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		String	$Name		參數名稱
+		 * @param		String	$Value		參數內容
+		 * @param		Integer	$MaxLength	參數最大長度
+		 * @param		Boolean	$AllowEmpty	是否允許空值
+		 * @version		1.0.1012
+		 */
 		private function ValidateURL($Name, $Value, $MaxLength = 200, $AllowEmpty = false) {
 			if (empty($Value)) {
-				if (!$AllowEmpty) {
-					throw new Exception($Name . ' is required.');
-				}
-			} else if (!preg_match('/^(http|https):\/\/+/', $Value)){
-				throw new Exception('Invalid ' . $Name . '.');
-			} else if ($this->StringLength($Value) > $MaxLength) {
-				throw new Exception($Name . ' max length is ' . $MaxLength . '.');
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 格式檢查
+				$this->IsValidFormat($Name, '/^(http|https):\/\/+/', $Value);
+				
+				// 長度檢查
+				$this->IsOverLength($Name, $this->StringLength($Value, $this->Encode), $MaxLength);
 			}
 		}
 		
+		/**
+		 *  字串檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		String	$Name		參數名稱
+		 * @param		String	$Value		參數內容
+		 * @param		Integer	$MaxLength	參數最大長度
+		 * @param		Boolean	$AllowEmpty	是否允許空值
+		 * @version		1.0.1012
+		 */
 		private function ValidateString($Name, $Value, $MaxLength = 1, $AllowEmpty = false) {
 			if (empty($Value)) {
-				if (!$AllowEmpty) {
-					throw new Exception($Name . ' is required.');
-				}
-			} else if ($this->StringLength($Value) > $MaxLength) {
-				throw new Exception($Name . ' max length is ' . $MaxLength . '.');
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 長度檢查
+				$this->IsOverLength($Name, $this->StringLength($Value, $this->Encode), $MaxLength);
 			}
 		}
 		
+		/**
+		 *  金額檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		String	$Name		參數名稱
+		 * @param		String	$Value		參數內容
+		 * @param		Integer	$MaxLength	參數最大長度
+		 * @param		Boolean	$AllowEmpty	是否允許空值
+		 * @version		1.0.1012
+		 */
 		private function ValidateAmount($Name, $Value, $AllowEmpty = false) {
 			if (empty($Value)) {
-				if (!$AllowEmpty) {
-					throw new Exception($Name . ' is required.');
-				}
-			} else if ((gettype($Value) != 'integer') or (!preg_match('/^\d+$/', $Value))) {
-				throw new Exception('Invalid ' . $Name . '.');
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 資料型態檢查
+				$this->IsInteger($Name, $Value);
+				
+				// 格式檢查
+				$this->IsValidFormat($Name, '/^\d+$/', $Value);
 			}
 		}
 		
+		/**
+		 *  電話號碼檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		String	$Name		參數名稱
+		 * @param		String	$Value		參數內容
+		 * @param		Boolean	$AllowEmpty	是否允許空值
+		 * @version		1.0.1012
+		 */
 		private function ValidatePhoneNumber($Name, $Value, $AllowEmpty = false) {
 			if (empty($Value)) {
-				if (!$AllowEmpty) {
-					throw new Exception($Name . ' is required.');
-				}
-			} else if (!preg_match('/^\d{7,20}$/', $Value)) {
-				throw new Exception('Invalid ' . $Name . '.');
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 格式檢查
+				$this->IsValidFormat($Name, '/^\d{7,20}$/', $Value);
 			}
 		}
 		
+		/**
+		 *  電子郵件檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		String	$Name		參數名稱
+		 * @param		String	$Value		參數內容
+		 * @param		Integer	$MaxLength	參數最大長度
+		 * @param		Boolean	$AllowEmpty	是否允許空值
+		 * @version		1.0.1012
+		 */
 		private function ValidateEmail($Name, $Value, $MaxLength = 100, $AllowEmpty = false) {
 			if (empty($Value)) {
-				if (!$AllowEmpty) {
-					throw new Exception($Name . ' is required.');
-				}
-			} else if ($this->StringLength($Value) > $MaxLength) {
-				throw new Exception($Name . ' max length is ' . $MaxLength . '.');
-			} else if (!preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]{2,4}$/', $Value)) {
-				throw new Exception('Invalid ' . $Name . '.');
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 長度檢查
+				$this->IsOverLength($Name, $this->StringLength($Value, $this->Encode), $MaxLength);
+				
+				// 格式檢查
+				$this->IsValidFormat($Name, '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]{2,4}$/', $Value);
 			}
 		}
 		
+		/**
+		 *  郵遞區號檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		String	$Name		參數名稱
+		 * @param		String	$Value		參數內容
+		 * @param		Boolean	$AllowEmpty	是否允許空值
+		 * @version		1.0.1012
+		 */
 		private function ValidateZipCode($Name, $Value, $AllowEmpty = false) {
 			if (empty($Value)) {
-				if (!$AllowEmpty) {
-					throw new Exception($Name . ' is required.');
-				}
-			} else if (!preg_match('/^\d{3,5}$/', $Value)){
-				throw new Exception('Invalid ' . $Name . '.');
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 格式檢查
+				$this->IsValidFormat($Name, '/^\d{3,5}$/', $Value);
 			}
 		}
 		
+		/**
+		 *  混合型態 ID 檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		String	$Name		參數名稱
+		 * @param		String	$Value		參數內容
+		 * @param		Boolean	$AllowEmpty	是否允許空值
+		 * @version		1.0.1012
+		 */
 		private function ValidateMixTypeID($Name, $Value, $MaxLength = 1, $AllowEmpty = false) {
 			if (empty($Value)) {
-				if (!$AllowEmpty) {
-					throw new Exception($Name . ' is required.');
-				}
-			} else if (!preg_match('/^[0-9a-zA-Z]{1,' . $MaxLength . '}$/', $Value)){
-				throw new Exception('Invalid ' . $Name . '.');
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 格式檢查
+				$this->IsValidFormat($Name, '/^[0-9a-zA-Z]{1,' . $MaxLength . '}$/', $Value);
 			}
 		}
 		
+		
+		
+		/**
+		 *  門市類型檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @version		1.0.1012
+		 */
 		private function ValidateStoreType() {
-			if (empty($this->PostParams['StoreType'])) {
-				throw new Exception('StoreType is required.');
-			} else if ($this->PostParams['StoreType'] != StoreType::RECIVE_STORE and $this->PostParams['StoreType'] != StoreType::RETURN_STORE) {
-				throw new Exception('Invalid StoreType.');
+			$Name = 'StoreType'; // 參數名稱
+			$Value = $this->PostParams['StoreType']; // 參數內容
+			$ClassName = 'StoreType'; // 合法資料 Class 名稱
+			$AllowEmpty = false; // 是否允許空值
+			
+			if (empty($Value)) {
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 內容檢查
+				$this->IsLegalValue($Name, $ClassName, $Value);
 			}
 		}
 
+		/**
+		 *  廠商交易編號檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @version		1.0.1012
+		 */
 		private function ValidateMerchantTradeNo() {
-			if (empty($this->PostParams['MerchantTradeNo'])) {
-				throw new Exception('MerchantTradeNo is required.');
-			} else if (!preg_match('/^[a-zA-Z0-9]{1,20}$/', $this->PostParams['MerchantTradeNo'])) {
-				throw new Exception('Invalid MerchantTradeNo.');
-			}
-		}
-		
-		private function ValidateLogisticsType() {
-			if (empty($this->PostParams['LogisticsType'])) {
-				throw new Exception('LogisticsType is required.');
-			} else if ($this->PostParams['LogisticsType'] != LogisticsType::CVS and $this->PostParams['LogisticsType'] != LogisticsType::HOME) {
-				throw new Exception('Invalid LogisticsType.');
-			}
-		}
-		
-		private function ValidateLogisticsSubType() {
-			if (empty($this->PostParams['LogisticsSubType'])) {
-				throw new Exception('LogisticsSubType is required.');
+			$Name = 'MerchantTradeNo'; // 參數名稱
+			$Value = $this->PostParams['MerchantTradeNo']; // 參數內容
+			$AllowEmpty = false; // 是否允許空值
+			
+			if (empty($Value)) {
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
 			} else {
-				if ($this->PostParams['LogisticsType'] == LogisticsType::HOME) {
-					if ($this->PostParams['LogisticsSubType'] != LogisticsSubType::TCAT) {
-						throw new Exception('Invalid LogisticsSubType.');
+				// 格式檢查
+				$this->IsValidFormat($Name, '/^[a-zA-Z0-9]{1,20}$/', $Value);
+			}
+		}
+		
+		/**
+		 *  物流類型檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @version		1.0.1012
+		 */
+		private function ValidateLogisticsType() {
+			$Name = 'LogisticsType'; // 參數名稱
+			$Value = $this->PostParams['LogisticsType']; // 參數內容
+			$ClassName = 'LogisticsType'; // 合法資料 Class 名稱
+			$AllowEmpty = false; // 是否允許空值
+			
+			if (empty($Value)) {
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 內容檢查
+				$this->IsLegalValue($Name, $ClassName, $Value);
+			}
+		}
+		
+		/**
+		 *  物流子類型檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		Boolean	$AllowEmpty	是否允許空值
+		 * @version		1.0.1012
+		 */
+		private function ValidateLogisticsSubType($AllowEmpty = false) {
+			$Name = 'LogisticsSubType'; // 參數名稱
+			$Value = $this->PostParams['LogisticsSubType']; // 參數內容
+			$ClassName = 'LogisticsSubType'; // 合法資料 Class 名稱
+			
+			if (empty($Value)) {
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				if (isset($this->PostParams['LogisticsType'])) {
+					$LogisticsType = $this->PostParams['LogisticsType'];
+					// 宅配物流子類型檢查
+					if ($LogisticsType === LogisticsType::HOME) {
+						if ($Value != LogisticsSubType::TCAT) {
+							throw new Exception('Invalid home delivery ' . $Name . '.');
+						}
 					}
-				} else {
-					if (
-						$this->PostParams['LogisticsSubType'] != LogisticsSubType::FAMILY and
-						$this->PostParams['LogisticsSubType'] != LogisticsSubType::UNIMART and
-						$this->PostParams['LogisticsSubType'] != LogisticsSubType::FAMILY_C2C and
-						$this->PostParams['LogisticsSubType'] != LogisticsSubType::UNIMART_C2C
-					) {
-						throw new Exception('Invalid LogisticsSubType.');
+					
+					// 超商取貨物流子類型檢查
+					if ($LogisticsType === LogisticsType::CVS) {
+						if (
+							$Value != LogisticsSubType::FAMILY and
+							$Value != LogisticsSubType::UNIMART and
+							$Value != LogisticsSubType::FAMILY_C2C and
+							$Value != LogisticsSubType::UNIMART_C2C
+						) {
+							throw new Exception('Invalid CVS pickup ' . $Name . '.');
+						}
 					}
 				}
 				
+				// 物流類型無設定時的內容檢查
+				$this->IsLegalValue($Name, $ClassName, $Value);
 			}
 		}
 		
+		/**
+		 *  是否代收貨款檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		Boolean	$AllowEmpty	是否允許空值
+		 * @version		1.0.1012
+		 */
 		private function ValidateIsCollection($AllowEmpty = false) {
-			if (empty($this->PostParams['IsCollection'])) {
-				if (!$AllowEmpty) {
-					throw new Exception('IsCollection is required.');
-				}
-			} else if ($this->PostParams['IsCollection'] != IsCollection::YES and $this->PostParams['IsCollection'] != IsCollection::NO) {
-				throw new Exception('Invalid IsCollection.');
-			} else if ($this->PostParams['LogisticsType'] == LogisticsType::HOME and $this->PostParams['IsCollection'] == IsCollection::YES) {
+			$Name = 'IsCollection'; // 參數名稱
+			$Value = $this->PostParams['IsCollection']; // 參數內容
+			$ClassName = 'IsCollection'; // 合法資料 Class 名稱
+			
+			if (empty($Value)) {
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 內容檢查
+				$this->IsLegalValue($Name, $ClassName, $Value);
+				
 				// 目前物流類型(LogisticsType)宅配(Home)不支援代收貨款(IsCollection = Y)
-				throw new Exception('IsCollection could not be Y, when LogisticsType is Home.');
-			}
-		}
-		
-		private function ValidateDevice($AllowEmpty = false) {
-			if (empty($this->PostParams['Device'])) {
-				if (!$AllowEmpty) {
-					throw new Exception('Device is required.');
+				if ($this->PostParams['LogisticsType'] == LogisticsType::HOME and $Value == IsCollection::YES) {
+					throw new Exception($Name . ' could not be Y, when LogisticsType is Home.');
 				}
-			} else if (gettype($this->PostParams['Device']) != 'integer' or ($this->PostParams['Device'] != Device::PC and $this->PostParams['Device'] != Device::MOBILE)) {
-				throw new Exception('Invalid Device.');
 			}
 		}
 		
+		/**
+		 *  使用設備檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		Boolean	$AllowEmpty	是否允許空值
+		 * @version		1.0.1012
+		 */
+		private function ValidateDevice($AllowEmpty = false) {
+			$Name = 'Device'; // 參數名稱
+			$Value = $this->PostParams['Device']; // 參數內容
+			$ClassName = 'Device'; // 合法資料 Class 名稱
+			
+			if (empty($Value)) {
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 資料型態檢查
+				$this->IsInteger($Name, $Value);
+				
+				// 內容檢查
+				$this->IsLegalValue($Name, $ClassName, $Value);
+			}
+		}
+		
+		/**
+		 *  廠商交易時間檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @version		1.0.1012
+		 */
 		private function ValidateMerchantTradeDate() {
-			if (empty($this->PostParams['MerchantTradeDate'])) {
-				throw new Exception('MerchantTradeDate is required.');
-			} else if (date('Y/m/d H:i:s', strtotime($this->PostParams['MerchantTradeDate'])) != $this->PostParams['MerchantTradeDate']){
-				throw new Exception('Invalid MerchantTradeDate.');
+			$Name = 'MerchantTradeDate'; // 參數名稱
+			$Value = $this->PostParams['MerchantTradeDate']; // 參數內容
+			$ClassName = 'MerchantTradeDate'; // 合法資料 Class 名稱
+			$AllowEmpty = false; // 是否允許空值
+			
+			if (empty($Value)) {
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 日期檢查
+				$this->IsDate($Name, 'Y/m/d H:i:s', $Value);
 			}
 		}
 
+		/**
+		 *  溫層檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @version		1.0.1012
+		 */
 		private function ValidateTemperature() {
-			if (empty($this->PostParams['Temperature'])) {
-				throw new Exception('Temperature is required.');
-			} else if (
-				$this->PostParams['Temperature'] != Temperature::ROOM and
-				$this->PostParams['Temperature'] != Temperature::REFRIGERATION and
-				$this->PostParams['Temperature'] != Temperature::FREEZE
-			) {
-				throw new Exception('Invalid Temperature.');
+			$Name = 'Temperature'; // 參數名稱
+			$Value = $this->PostParams['Temperature']; // 參數內容
+			$ClassName = 'Temperature'; // 合法資料 Class 名稱
+			$AllowEmpty = false; // 是否允許空值
+			
+			if (empty($Value)) {
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 內容檢查
+				$this->IsLegalValue($Name, $ClassName, $Value);
 			}
 		}
 	
+		/**
+		 *  距離檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @version		1.0.1012
+		 */
 		private function ValidateDistance() {
-			if (empty($this->PostParams['Distance'])) {
-				throw new Exception('Distance is required.');
-			} else if (
-				$this->PostParams['Distance'] != Distance::SAME and
-				$this->PostParams['Distance'] != Distance::OTHER and
-				$this->PostParams['Distance'] != Distance::ISLAND
-			) {
-				throw new Exception('Invalid Distance.');
+			$Name = 'Distance'; // 參數名稱
+			$Value = $this->PostParams['Distance']; // 參數內容
+			$ClassName = 'Distance'; // 合法資料 Class 名稱
+			$AllowEmpty = false; // 是否允許空值
+			
+			if (empty($Value)) {
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 內容檢查
+				$this->IsLegalValue($Name, $ClassName, $Value);
 			}
 		}
 		
+		/**
+		 *  規格檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @version		1.0.1012
+		 */
 		private function ValidateSpecification() {
-			if (empty($this->PostParams['Specification'])) {
-				throw new Exception('Specification is required.');
-			} else if (
-				$this->PostParams['Specification'] != Specification::CM_60 and
-				$this->PostParams['Specification'] != Specification::CM_90 and
-				$this->PostParams['Specification'] != Specification::CM_120 and
-				$this->PostParams['Specification'] != Specification::CM_150
-			) {
-				throw new Exception('Invalid Specification.');
+			$Name = 'Specification'; // 參數名稱
+			$Value = $this->PostParams['Specification']; // 參數內容
+			$ClassName = 'Specification'; // 合法資料 Class 名稱
+			$AllowEmpty = false; // 是否允許空值
+			
+			if (empty($Value)) {
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 內容檢查
+				$this->IsLegalValue($Name, $ClassName, $Value);
 			}
 		}
 			
+		/**
+		 *  預定送達時段檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		Boolean	$AllowEmpty	是否允許空值
+		 * @version		1.0.1012
+		 */
 		private function ValidateScheduledDeliveryTime($AllowEmpty = false) {
-			if (empty($this->PostParams['ScheduledDeliveryTime'])) {
-				if (!$AllowEmpty) {
-					throw new Exception('ScheduledDeliveryTime is required.');
-				}
-			} else if (
-				$this->PostParams['ScheduledDeliveryTime'] != ScheduledDeliveryTime::TIME_9_12 and
-				$this->PostParams['ScheduledDeliveryTime'] != ScheduledDeliveryTime::TIME_12_17 and
-				$this->PostParams['ScheduledDeliveryTime'] != ScheduledDeliveryTime::TIME_17_20 and
-				$this->PostParams['ScheduledDeliveryTime'] != ScheduledDeliveryTime::UNLIMITED and
-				$this->PostParams['ScheduledDeliveryTime'] != ScheduledDeliveryTime::TIME_20_21
-			) {
-				throw new Exception('Invalid ScheduledDeliveryTime.');
+			$Name = 'ScheduledDeliveryTime'; // 參數名稱
+			$Value = $this->PostParams['ScheduledDeliveryTime']; // 參數內容
+			$ClassName = 'ScheduledDeliveryTime'; // 合法資料 Class 名稱
+			
+			if (empty($Value)) {
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 內容檢查
+				$this->IsLegalValue($Name, $ClassName, $Value);
 			}
 		}
 		
+		/**
+		 *  物流訂單出貨日期檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		Boolean	$AllowEmpty	是否允許空值
+		 * @version		1.0.1012
+		 */
 		private function ValidateShipmentDate($AllowEmpty = false) {
-			if (empty($this->PostParams['ShipmentDate'])) {
-				if (!$AllowEmpty) {
-					throw new Exception('ShipmentDate is required.');
-				}
-			} else if (date('Y/m/d', strtotime($this->PostParams['ShipmentDate'])) != $this->PostParams['ShipmentDate']){
-				throw new Exception('Invalid ShipmentDate.');
+			$Name = 'ShipmentDate'; // 參數名稱
+			$Value = $this->PostParams['ShipmentDate']; // 參數內容
+			$ClassName = 'ShipmentDate'; // 合法資料 Class 名稱
+			
+			if (empty($Value)) {
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 日期檢查
+				$this->IsDate($Name, 'Y/m/d', $Value);
 			}
 		}
 
+		/**
+		 *  是否允許空值
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		String	$Name		參數名稱
+		 * @param		boolean	$AllowEmpty	是否允許空值
+		 * @return		boolean
+		 * @version		1.0.1012
+		 */
+		private function IsAllowEmpty($Name, $AllowEmpty){
+			if (!$AllowEmpty) {
+				throw new Exception($Name . ' is required.');
+			}
+		}
+			
+		/**
+		 *  是否超過長度限制
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		String	$Name			參數名稱
+		 * @param		Integer	$MaxLength		參數內容
+		 * @param		Boolean	$AllowEmpty	是否允許空值
+		 * @version		1.0.1012
+		 */
+		private function IsOverLength($Name, $Length, $MaxLength) {
+			if ($Length > $MaxLength) {
+				throw new Exception($Name . ' max length is ' . $MaxLength . '.');
+			}
+		}
+		
+		/**
+		 *  是否為指定格式
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		String	$Name		參數名稱
+		 * @param		String	$Pattern	格式檢查用正規表示法
+		 * @param		String	$Value		參數內容
+		 * @version		1.0.1012
+		 */
+		private function IsValidFormat($Name, $Pattern, $Value) {
+			if (!empty($Value)) {
+				if (!preg_match($Pattern, $Value)) {
+					throw new Exception('Invalid ' . $Name . '.');
+				}
+			}
+		}
+		
+		/**
+		 *  是否為數值
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		String	$Name		參數名稱
+		 * @param		String	$Value		參數內容
+		 * @version		1.0.1012
+		 */
+		private function IsInteger($Name, $Value) {
+			if (!is_int($Value)) {
+				throw new Exception($Name . ' type should be integer.');
+			}
+		}
+		
+		/**
+		 *  是否為數值
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		String	$Name			參數名稱
+		 * @param		String	$ClassName		合法資料 Class 名稱
+		 * @param		String	$Value			參數內容
+		 * @version		1.0.1012
+		 */
+		private function IsLegalValue($Name, $ClassName, $Value) {
+			// 取得合法資料內容
+			$ReflectionObject = new ReflectionClass($ClassName);
+			$ContentList = $ReflectionObject->getConstants();
+			unset($ReflectionObject);
+			
+			// 檢查是否為合法資料
+			if (!in_array($Value, $ContentList)) {
+				throw new Exception('Illegal ' . $Name . '.');
+			}
+		}
+		
+		/**
+		 *  是否為正確日期
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		String	$Name			參數名稱
+		 * @param		String	$Format			日期格式
+		 * @param		String	$Value			參數內容
+		 * @version		1.0.1012
+		 */
+		private function IsDate($Name, $Format, $Value) {
+			if (date($Format, strtotime($Value)) != $Value){
+				throw new Exception('Invalid ' . $Name . '.');
+			}
+		}
+		
+		/**
+		 *  取得並過濾 $_POST 參數
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK_Misc
+		 * @param		Array	$Source			$_POST 參數來源
+		 * @param		Array	$ParamList		合法參數與預設值
+		 * @param		Array	$MergeParams	其他待合併參數
+		 * @return		Array
+		 * @version		1.0.1012
+		 */
 		private function GetPostParams($Source, $ParamList, $MergeParams = array()) {
+			// 過濾非法參數
 			$PostParams = array();
 			foreach ($ParamList as $Name => $Value) {
 				if (isset($Source[$Name])) {
 					$PostParams[$Name] = $Source[$Name];
 				} else {
+					// 若未設定則帶預設值
 					$PostParams[$Name] = $Value;
 				}
 			}
 			return array_merge($MergeParams, $PostParams);
 		}
 		
+		/**
+		 *  取得 ECPay URL
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK_Misc
+		 * @param		String	$FunctionType	功能名稱
+		 * @return		String
+		 * @version		1.0.1012
+		 */
 		private function GetURL($FunctionType) {
+			$MerchantID = $this->PostParams['MerchantID'];
 			$UrlList = array();
-			if ($this->PostParams['MerchantID'] == ECPayTestMerchantID::B2C or $this->PostParams['MerchantID'] == ECPayTestMerchantID::C2C) {
+			if ($MerchantID == ECPayTestMerchantID::B2C or $MerchantID == ECPayTestMerchantID::C2C) {
 				// 測試環境
 				$UrlList = array(
 					'CVS_MAP' => ECPayTestURL::CVS_MAP,
@@ -1228,35 +1877,78 @@
 			return $UrlList[$FunctionType];
 		}
 		
-		private function NextLine($content) {
-			return $content . "\n";
+		/**
+		 *  加入換行字元
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Misc
+		 * @param		String	$Content	內容
+		 * @return		String
+		 * @version		1.0.1012
+		 */
+		private function AddNextLine($Content) {
+			return $Content . PHP_EOL;
 		}
 		
+		/**
+		 *  產生自動/手動 POST 提交表單
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK_Misc
+		 * @param		String	$ButtonDesc	按鈕顯示名稱
+		 * @param		String	$Target		表單 action 目標
+		 * @return		String
+		 * @version		1.0.1012
+		 */
 		private function GenPostHTML($ButtonDesc = '', $Target = '_self') {
-			// 產生 POST form HTML
-			$PostHTML = $this->NextLine('<div style="text-align:center;">');
-			$PostHTML .= $this->NextLine('  <form id="ECPayForm" method="POST" action="' . $this->ServiceURL . '" target="' . $Target . '">');
+			$PostHTML = $this->AddNextLine('<div style="text-align:center;">');
+			$PostHTML .= $this->AddNextLine('  <form id="ECPayForm" method="POST" action="' . $this->ServiceURL . '" target="' . $Target . '">');
 			foreach ($this->PostParams as $Name => $Value) {
-				$PostHTML .= $this->NextLine('    <input type="hidden" name="' . $Name . '" value="' . $Value . '" />');
+				$PostHTML .= $this->AddNextLine('    <input type="hidden" name="' . $Name . '" value="' . $Value . '" />');
 			}
 			if (!empty($ButtonDesc)) {
-				$PostHTML .= $this->NextLine('    <input type="submit" id="__paymentButton" value="' . $ButtonDesc . '" />');
+				// 手動
+				$PostHTML .= $this->AddNextLine('    <input type="submit" id="__paymentButton" value="' . $ButtonDesc . '" />');
 			} else {
-				$PostHTML .= $this->NextLine('<script>document.getElementById("ECPayForm").submit();</script>');
+				// 自動
+				$PostHTML .= $this->AddNextLine('    <script>document.getElementById("ECPayForm").submit();</script>');
 			}
-			$PostHTML .= $this->NextLine('  </form>');
-			$PostHTML .= $this->NextLine('</div>');
+			$PostHTML .= $this->AddNextLine('  </form>');
+			$PostHTML .= $this->AddNextLine('</div>');
 			
 			return $PostHTML;
 		}
 		
-		private function StringLength($string) {
-			return mb_strwidth($string, $this->Encode);
+		/**
+		 *  依編碼方式取得字串長度
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Misc
+		 * @param		String	$RetriveString	字串內容
+		 * @param		String	$Encode 		字串編碼
+		 * @return		Integer
+		 * @version		1.0.1012
+		 */
+		private function StringLength($RetriveString, $Encode) {
+			return mb_strwidth($RetriveString, $Encode);
 		}
 		
+		/**
+		 *  產生 CheckMacValue
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK_Misc
+		 * @param		Array	$ParamList	參數內容
+		 * @param		String	$HashKey	HashKey
+		 * @param		String	$HashIV 	HashIV
+		 * @return		String
+		 * @version		1.0.1012
+		 */
 		private function GenCheckMacValue($ParamList, $HashKey, $HashIV) {
-			// CheckMacValue
+			// 依自定義 Function 按 Key 值排序
             uksort($ParamList, array('ECPayLogistics','MerchantSort'));
+			
+			// 組成 HTTP Query String
 			$CheckMacValue = 'HashKey=' . $HashKey;
 			foreach ($ParamList as $ParamName => $ParamValue) {
 				$CheckMacValue .= '&' . $ParamName . '=' . $ParamValue;
@@ -1264,7 +1956,7 @@
 			$CheckMacValue .= '&HashIV=' . $HashIV;
 			$CheckMacValue = strtolower(urlencode($CheckMacValue));
 			
-			// 取之為與 dotNet 相符的字元
+			// 取代特殊字元使其與 dotNet 相符
 			$CheckMacValue = str_replace('%2d', '-', $CheckMacValue);
 			$CheckMacValue = str_replace('%5f', '_', $CheckMacValue);
 			$CheckMacValue = str_replace('%2e', '.', $CheckMacValue);
@@ -1279,6 +1971,30 @@
 			return $CheckMacValue;
 		}
 		
+		/**
+		 *  自定義排序方式
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK_Misc
+		 * @param		String	$Value01	值1
+		 * @param		String	$Value02	值2
+		 * @return		Integer
+		 * @version		1.0.1012
+		 */
+        private static function MerchantSort($Value01, $Value02) {
+            return strcasecmp($Value01, $Value02);
+        }
+		
+		/**
+		 *  幕後提交
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK_Misc
+		 * @param		Array	$ParamList	參數內容
+		 * @param		String	$URL		提交 URL
+		 * @return		Mixed
+		 * @version		1.0.1012
+		 */
 		private function ServerPost($ParamList, $URL) {
 			$Curl = curl_init();
 			curl_setopt($Curl, CURLOPT_URL, $URL);
@@ -1293,14 +2009,22 @@
 
 			return $Result;
         }
-        
-        private static function MerchantSort($val_01, $val_02) {
-            return strcasecmp($val_01, $val_02);
-        }
 		
+		/**
+		 *  解析 ECPay 回傳結果
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK_Misc
+		 * @param		String	$Feedback		回傳結果
+		 * @param		Array	$FeedbackList	合法回傳參數
+		 * @param		String	$Separator		分隔符號
+		 * @return		Array
+		 * @version		1.0.1012
+		 */
 		private function ParseFeedback($Feedback, $FeedbackList = array('RtnCode', 'RtnMsg'), $Separator = '|') {
-			$Pieces = explode('|', $Feedback);
+			$Pieces = explode($Separator, $Feedback);
 			$Feedback = array();
+			// 回傳參數檢查
 			if (count($Pieces) == count($FeedbackList)) {
 				foreach ($FeedbackList as $Idx => $Name) {
 					$Feedback[$Name] = $Pieces[$Idx];
@@ -1310,5 +2034,5 @@
 			}
 			return $Feedback;
 		}
-	}
+}
 ?>
