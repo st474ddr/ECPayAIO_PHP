@@ -1,7 +1,7 @@
 <?php
 /*
 電子發票SDK
-版本:V1.0.1004
+版本:V1.0.1221
 @author Wesley
 */
 
@@ -342,7 +342,6 @@ class EcpayInvoice
 				unset($aSend_Info['InvoiceTag']) ;
 				unset($aSend_Info['Notified']) ;
 
-				unset($aSend_Info['LoveCode']) ;
 				unset($aSend_Info['BarCode']) ;
 				
 				// 3-2商品資訊組合
@@ -416,7 +415,6 @@ class EcpayInvoice
 				unset($aSend_Info['Notified']) ;
 				unset($aSend_Info['ECBankID']) ;			// 此參數已停用
 
-				unset($aSend_Info['LoveCode']) ;
 				unset($aSend_Info['BarCode']) ;
 				
 				if(empty($aSend_Info['CustomerIdentifier']))
@@ -996,7 +994,6 @@ class EcpayInvoice
 				unset($aSend_Info['ClearanceMark']) ;
 				unset($aSend_Info['Print']) ;
 				unset($aSend_Info['Donation']) ;
-				unset($aSend_Info['LoveCode']) ;
 				unset($aSend_Info['CarruerType']) ;
 				unset($aSend_Info['CarruerNum']) ;
 				unset($aSend_Info['TaxType']) ;
@@ -2276,7 +2273,7 @@ class EcpayInvoice
 				$sSend_Info .= '&' . $key . '=' . $value ;
 			}
 		}
-		
+
 		// 送出參數
 		$ch = curl_init();
 	        curl_setopt($ch, CURLOPT_URL, $this->Invoice_Url);
