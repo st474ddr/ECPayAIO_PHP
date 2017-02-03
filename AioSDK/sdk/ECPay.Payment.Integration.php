@@ -487,7 +487,8 @@ class ECPay_AllInOne {
         return $arFeedback = ECPay_DoAction::CheckOut(array_merge($this->Action,array("MerchantID" => $this->MerchantID)) ,$this->HashKey ,$this->HashIV ,$this->ServiceURL);
     }
         
-    function AioCapture(){
+    //合作特店申請撥款
+	function AioCapture(){
         return $arFeedback = ECPay_AioCapture::Capture(array_merge($this->Capture,array("MerchantID" => $this->MerchantID)) ,$this->HashKey ,$this->HashIV ,$this->ServiceURL);
     }
 
@@ -773,7 +774,7 @@ class ECPay_DoAction extends ECPay_Aio
 
 class ECPay_AioCapture extends ECPay_Aio
 {
-    static function CheckOut($arParameters=array(),$HashKey='',$HashIV='',$ServiceURL=''){
+    static function Capture($arParameters=array(),$HashKey='',$HashIV='',$ServiceURL=''){
 
         $arErrors   = array();
         $arFeedback = array();
