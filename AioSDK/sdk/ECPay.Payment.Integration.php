@@ -312,7 +312,7 @@ abstract class ECPay_InvoiceState {
 /**
  * 電子發票載具類別
  */
-abstract class ECPay_CarruerType {
+abstract class ECPay_CarrierType {
   // 無載具
   const None = '';
   
