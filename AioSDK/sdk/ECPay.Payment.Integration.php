@@ -856,10 +856,10 @@ Abstract class ECPay_Verification
             array_push($arErrors, 'ReturnURL is required.');
         }
         if (strlen($arParameters['ClientBackURL']) > 200) {
-            array_push($arErrors, 'ClientBackURL max langth as 10.');
+            array_push($arErrors, 'ClientBackURL max langth as 200.');
         }
         if (strlen($arParameters['OrderResultURL']) > 200) {
-            array_push($arErrors, 'OrderResultURL max langth as 10.');
+            array_push($arErrors, 'OrderResultURL max langth as 200.');
         }
 
         if (strlen($arParameters['MerchantTradeNo']) == 0) {
