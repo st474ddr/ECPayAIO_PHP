@@ -944,17 +944,17 @@ Abstract class ECPay_Verification
             $arExtend['Donation'] = ECPay_Donation::No ;
         }else{
             //若有帶統一編號，不可捐贈
-            if(strlen($arExtend['CustomerIdentifier']) > 0 && $arExtend['Donation'] != ECPay_Donation::No  ){
+            if(strlen($arExtend['CustomerIdentifier']) > 0 && $arExtend['Donation'] != ECPay_Donation::No){
                 array_push($arErrors, "Donation should be No.");
             }
         }
 
         // 列印註記Print(預設為No)
         if(!array_key_exists('Print', $arExtend)){
-            $arExtend['Print'] = ECPay_PrintMark::No ;
+            $arExtend['Print'] = ECPay_PrintMark::No;
         }else{
             //捐贈註記為捐贈(Yes)時，請設定不列印(No)
-            if($arExtend['Donation'] == ECPay_Donation::Yes && $arExtend['PrintMark'] != ECPay_Donation::No){
+            if($arExtend['Donation'] == ECPay_Donation::Yes && $arExtend['Print'] != ECPay_PrintMark::No){
                 array_push($arErrors, "Print should be No.");
             }
             // 統一編號不為空字串時，請設定列印(Yes)
