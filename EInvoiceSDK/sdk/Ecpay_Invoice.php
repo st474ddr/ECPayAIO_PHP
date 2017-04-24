@@ -1,7 +1,7 @@
 <?php
 /*
 電子發票SDK
-版本:V1.0.1221
+版本:V1.0.0315
 @author Wesley
 */
 
@@ -511,7 +511,6 @@ class EcpayInvoice
 				unset($aSend_Info['InvoiceTag']) ;
 				unset($aSend_Info['Notified']) ;
 
-				unset($aSend_Info['LoveCode']) ;
 				unset($aSend_Info['BarCode']) ;
 				
 				// 3-2商品資訊組合
@@ -605,7 +604,6 @@ class EcpayInvoice
 				unset($aSend_Info['InvoiceTag']) ;
 				unset($aSend_Info['Notified']) ;
 
-				unset($aSend_Info['LoveCode']) ;
 				unset($aSend_Info['BarCode']) ;
 				
 				// 3-2商品資訊組合
@@ -667,7 +665,6 @@ class EcpayInvoice
 				unset($aSend_Info['InvoiceTag']) ;
 				unset($aSend_Info['Notified']) ;
 
-				unset($aSend_Info['LoveCode']) ;
 				unset($aSend_Info['BarCode']) ;
 				
 				// 3-2商品資訊組合
@@ -731,7 +728,6 @@ class EcpayInvoice
 				unset($aSend_Info['InvoiceTag']) ;
 				unset($aSend_Info['Notified']) ;
 
-				unset($aSend_Info['LoveCode']) ;
 				unset($aSend_Info['BarCode']) ;
 				
 				// 3-2商品資訊組合
@@ -794,7 +790,6 @@ class EcpayInvoice
 				unset($aSend_Info['InvoiceTag']) ;
 				unset($aSend_Info['Notified']) ;
 
-				unset($aSend_Info['LoveCode']) ;
 				unset($aSend_Info['BarCode']) ;
 				
 				// 3-2商品資訊組合
@@ -848,7 +843,6 @@ class EcpayInvoice
 				unset($aSend_Info['InvoiceNumber']) ;
 				unset($aSend_Info['Reason']) ;
 
-				unset($aSend_Info['LoveCode']) ;
 				unset($aSend_Info['BarCode']) ;
 				
 				// 3-2商品資訊組合
@@ -907,7 +901,6 @@ class EcpayInvoice
 				unset($aSend_Info['InvoiceTag']) ;
 				unset($aSend_Info['Notified']) ;
 
-				unset($aSend_Info['LoveCode']) ;
 				unset($aSend_Info['BarCode']) ;
 				
 				// 3-2商品資訊組合
@@ -968,7 +961,6 @@ class EcpayInvoice
 
 				unset($aSend_Info['Tsr']) ;
 				unset($aSend_Info['PayType']) ;
-				unset($aSend_Info['LoveCode']) ;
 				
 				// 3-2商品資訊組合
         			unset($aSend_Info['Items']) ;
@@ -1086,6 +1078,10 @@ class EcpayInvoice
 						unset($aReturn_CheckMacValue['ItemWord']) ;
 						unset($aReturn_CheckMacValue['InvoiceRemark']) ;
 						unset($aReturn_CheckMacValue['ItemRemark']) ;
+
+						unset($aReturn_CheckMacValue['PosBarCode']) ;		// v1.2.3
+						unset($aReturn_CheckMacValue['QRCode_Left']) ;		// v1.2.1
+						unset($aReturn_CheckMacValue['QRCode_Right']) ;		// v1.2.1
 						
 						if($aReturn_Info['RtnCode'] == 1)
 						{
@@ -1768,7 +1764,7 @@ class EcpayInvoice
 		        			{
 			        			if (strlen($value['ItemRemark']) > 40 )
 							{
-								array_push($arErrors, '143:ItemWord max length as 40.');
+								array_push($arErrors, '143:ItemRemark max length as 40.');
 							}
 						}
 	
