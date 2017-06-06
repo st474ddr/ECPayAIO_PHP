@@ -920,8 +920,6 @@ class ECPay_QueryTrade extends ECPay_Aio
             $arParameters["CheckMacValue"] = ECPay_CheckMacValue::generate($arParameters,$HashKey,$HashIV,$EncryptType);
             // 送出查詢並取回結果。
             $szResult = parent::ServerPost($arParameters,$ServiceURL);
-            $szResult = str_replace(' ', '%20', $szResult);
-            $szResult = str_replace('+', '%2B', $szResult);
             
             // 轉結果為陣列。
             $arResult = json_decode($szResult,true);
@@ -930,7 +928,6 @@ class ECPay_QueryTrade extends ECPay_Aio
             foreach ($arResult as $keys => $value) {
                 $arFeedback[$keys] = $value;
             }
-
         }
 
         if (sizeof($arErrors) > 0) {
@@ -1258,12 +1255,9 @@ Abstract class ECPay_Verification
             $arExtend['CarrierNum'] = '';
         } else {
             switch ($arExtend['CarrierType']) {
-                // 載具類別為無載具(None)或會員載具(Member)時，請設定空字串
+                // 載具類別為無載具(None)或會員載具(Member)時，系統自動忽略載具編號
                 case ECPay_CarrierType::None:
                 case ECPay_CarrierType::Member:
-                    if (strlen($arExtend['CarrierNum']) > 0) {
-                        array_push($arErrors, "Please remove CarrierNum.");
-                    }
                 break;
                 // 載具類別為買受人自然人憑證(Citizen)時，請設定自然人憑證號碼，前2碼為大小寫英文，後14碼為數字
                 case ECPay_CarrierType::Citizen:
