@@ -317,7 +317,7 @@ abstract class ECPay_InvoiceState {
 /**
  * 電子發票載具類別
  */
-abstract class ECPay_CarrierType {
+abstract class ECPay_CarruerType {
   // 無載具
   const None = '';
   
@@ -983,7 +983,7 @@ Abstract class ECPay_Verification
     public $arInvoice = array(
             "RelateNumber",
             "CustomerIdentifier",
-            "CarrierType" ,
+            "CarruerType" ,
             "CustomerID" ,
             "Donation" ,
             "Print" ,
@@ -993,7 +993,7 @@ Abstract class ECPay_Verification
             "CustomerPhone" ,
             "CustomerEmail" ,
             "ClearanceMark" ,
-            "CarrierNum" ,
+            "CarruerNum" ,
             "LoveCode" ,
             "InvoiceRemark" ,
             "DelayDay",
@@ -1150,14 +1150,14 @@ Abstract class ECPay_Verification
             }
         }
 
-        // 載具類別CarrierType(預設為None)
-        if(!array_key_exists('CarrierType', $arExtend)){
-            $arExtend['CarrierType'] = ECPay_CarrierType::None ;
+        // 載具類別CarruerType(預設為None)
+        if(!array_key_exists('CarruerType', $arExtend)){
+            $arExtend['CarruerType'] = ECPay_CarruerType::None ;
         }else{
             //有設定統一編號的話，載具類別不可為合作特店載具或自然人憑證載具。
-            $notPrint = array(ECPay_CarrierType::Member, ECPay_CarrierType::Citizen);
-            if(strlen($arExtend['CustomerIdentifier']) > 0 && in_array($arExtend['CarrierType'], $notPrint)){
-                array_push($arErrors, "CarrierType should NOT be Member or Citizen.");
+            $notPrint = array(ECPay_CarruerType::Member, ECPay_CarruerType::Citizen);
+            if(strlen($arExtend['CustomerIdentifier']) > 0 && in_array($arExtend['CarruerType'], $notPrint)){
+                array_push($arErrors, "CarruerType should NOT be Member or Citizen.");
             }
         }
 
@@ -1165,7 +1165,7 @@ Abstract class ECPay_Verification
         if(!array_key_exists('CustomerID', $arExtend)) {
             $arExtend['CustomerID'] = '';
         }else{
-            if($arExtend['CarrierType'] == ECPay_CarrierType::Member && strlen($arExtend['CustomerID']) == 0 ){
+            if($arExtend['CarruerType'] == ECPay_CarruerType::Member && strlen($arExtend['CustomerID']) == 0 ){
                 array_push($arErrors, "CustomerID is required.");
             }
         }
@@ -1250,30 +1250,30 @@ Abstract class ECPay_Verification
             }
         }
         
-        // CarrierNum(預設為空字串)
-        if (!array_key_exists('CarrierNum', $arExtend)) {
-            $arExtend['CarrierNum'] = '';
+        // CarruerNum(預設為空字串)
+        if (!array_key_exists('CarruerNum', $arExtend)) {
+            $arExtend['CarruerNum'] = '';
         } else {
-            switch ($arExtend['CarrierType']) {
+            switch ($arExtend['CarruerType']) {
                 // 載具類別為無載具(None)或會員載具(Member)時，系統自動忽略載具編號
-                case ECPay_CarrierType::None:
-                case ECPay_CarrierType::Member:
+                case ECPay_CarruerType::None:
+                case ECPay_CarruerType::Member:
                 break;
                 // 載具類別為買受人自然人憑證(Citizen)時，請設定自然人憑證號碼，前2碼為大小寫英文，後14碼為數字
-                case ECPay_CarrierType::Citizen:
-                    if (!preg_match('/^[a-zA-Z]{2}\d{14}$/', $arExtend['CarrierNum'])){
-                        array_push($arErrors, "Invalid CarrierNum.");
+                case ECPay_CarruerType::Citizen:
+                    if (!preg_match('/^[a-zA-Z]{2}\d{14}$/', $arExtend['CarruerNum'])){
+                        array_push($arErrors, "Invalid CarruerNum.");
                     }
                 break;
                 // 載具類別為買受人手機條碼(Cellphone)時，請設定手機條碼，第1碼為「/」，後7碼為大小寫英文、數字、「+」、「-」或「.」
-                case ECPay_CarrierType::Cellphone:
-                    if (!preg_match('/^\/{1}[0-9a-zA-Z+-.]{7}$/', $arExtend['CarrierNum'])) {
-                        array_push($arErrors, "Invalid CarrierNum.");
+                case ECPay_CarruerType::Cellphone:
+                    if (!preg_match('/^\/{1}[0-9a-zA-Z+-.]{7}$/', $arExtend['CarruerNum'])) {
+                        array_push($arErrors, "Invalid CarruerNum.");
                     }
                 break;
 
                 default:
-                    array_push($arErrors, "Please remove CarrierNum.");
+                    array_push($arErrors, "Please remove CarruerNum.");
             }
         }
 
