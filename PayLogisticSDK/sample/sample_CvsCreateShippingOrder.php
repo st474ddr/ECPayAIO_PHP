@@ -1,5 +1,5 @@
 ﻿<?php
-    // 超商取貨物流訂單幕前建立
+    // 宅配逆物流訂單建立
     define('HOME_URL', 'http://www.sample.com.tw/logistics_dev');
     require('ECPay.Logistics.Integration.php');
     try {
@@ -8,36 +8,27 @@
         $AL->HashIV = 'v77hoKGq4kWxNNIS';
         $AL->Send = array(
             'MerchantID' => '2000132',
-            'MerchantTradeNo' => 'no' . date('YmdHis'),
-            'MerchantTradeDate' => date('Y/m/d H:i:s'),
-            'LogisticsType' => LogisticsType::CVS,
-            'LogisticsSubType' => LogisticsSubType::UNIMART,
-            'GoodsAmount' => 1500,
-            'CollectionAmount' => 10,
-            'IsCollection' => IsCollection::YES,
-            'GoodsName' => '測試商品A#測試商品B',
+            'AllPayLogisticsID' => '15609',
+			'LogisticsType' => LogisticsType::HOME,
+            'LogisticsSubType' => LogisticsSubType::TCAT,
             'SenderName' => '測試寄件者',
             'SenderPhone' => '0226550115',
-            'SenderCellPhone' => '0911222333',
+            'SenderCellPhone' => '0933222111',
+            'SenderZipCode' => '11560',
+            'SenderAddress' => '台北市南港區三重路19-2號5樓D棟',
             'ReceiverName' => '測試收件者',
-            'ReceiverPhone' => '0226550115',
-            'ReceiverCellPhone' => '0933222111',
+            'ReceiverPhone' => '0226550116',
+            'ReceiverCellPhone' => '0911222333',
             'ReceiverEmail' => 'test_emjhdAJr@test.com.tw',
-            'TradeDesc' => '測試交易敘述',
+            'ReceiverZipCode' => '11560',
+            'ReceiverAddress' => '台北市南港區三重路19-2號5樓D棟',
             'ServerReplyURL' => HOME_URL . '/ServerReplyURL.php',
-            'ClientReplyURL' => HOME_URL . '/ClientReplyURL.php',
-            'LogisticsC2CReplyURL' => HOME_URL . '/LogisticsC2CReplyURL.php',
-            'Remark' => '測試備註',
+			'GoodsAmount' => 1,
             'PlatformID' => '',
         );
-
-        $AL->SendExtend = array(
-            'ReceiverStoreID' => '991182',
-            'ReturnStoreID' => '991182'
-        );
-        // CreateShippingOrder(Button名稱, Form target)
-        $html = $AL->CreateShippingOrder('超商取貨物流訂單建立');
-        echo $html;
+        // CreateHomeReturnOrder()
+        $Result = $AL->CreateHomeReturnOrder();
+        echo '<pre>' . print_r($Result, true) . '</pre>';
     } catch(Exception $e) {
         echo $e->getMessage();
     }

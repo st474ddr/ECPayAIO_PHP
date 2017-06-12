@@ -26,12 +26,15 @@
 	 * @category	Options
 	 * @version		1.0.1012
 	 */
-	abstract class LogisticsSubType {			
+	abstract class LogisticsSubType {
 		const TCAT = 'TCAT';// 黑貓(宅配)
+		const ECAN = 'ECAN';// 宅配通
 		const FAMILY = 'FAMI';// 全家
 		const UNIMART = 'UNIMART';// 統一超商
+		const HILIFE = 'HILIFE';// 萊爾富
 		const FAMILY_C2C = 'FAMIC2C';// 全家店到店
 		const UNIMART_C2C = 'UNIMARTC2C';// 統一超商寄貨便
+		const HILIFE_C2C = 'HILIFEC2C';// 萊爾富富店到店
 	}
 	
 	/**
@@ -81,15 +84,19 @@
 		const CVS_MAP = 'https://logistics.ecpay.com.tw/Express/map';// 電子地圖
 		const SHIPPING_ORDER = 'https://logistics.ecpay.com.tw/Express/Create';// 物流訂單建立
 		const HOME_RETURN_ORDER = 'https://logistics.ecpay.com.tw/Express/ReturnHome';// 宅配逆物流訂單
+		const UNIMART_RETURN_ORDER = 'https://logistics.ecpay.com.tw/express/ReturnUniMartCVS';// 超商取貨逆物流訂單(統一超商B2C)
+		const HILIFE_RETURN_ORDER = 'https://logistics.ecpay.com.tw/express/ReturnHiLifeCVS';// 超商取貨逆物流訂單(萊爾富超商B2C)
 		const FAMILY_RETURN_ORDER = 'https://logistics.ecpay.com.tw/express/ReturnCVS';// 超商取貨逆物流訂單(全家超商B2C)
 		const FAMILY_RETURN_CHECK = 'https://logistics.ecpay.com.tw/Helper/LogisticsCheckAccoounts';// 全家逆物流核帳(全家超商B2C)
 		const UNIMART_UPDATE_LOGISTICS_INFO = 'https://logistics.ecpay.com.tw/Helper/UpdateShipmentInfo';// 統一修改物流資訊(全家超商B2C)
 		const UNIMART_UPDATE_STORE_INFO = 'https://logistics.ecpay.com.tw/Express/UpdateStoreInfo';// 更新門市(統一超商C2C)
 		const UNIMART_CANCEL_LOGISTICS_ORDER = 'https://logistics.ecpay.com.tw/Express/CancelC2COrder';// 取消訂單(統一超商C2C)
-		const QUERY_LOGISTICS_INFO = 'https://logistics.ecpay.com.tw/Helper/QueryLogisticsTradeInfo';// 物流訂單查詢
+		const QUERY_LOGISTICS_INFO = 'https://logistics.ecpay.com.tw/Helper/QueryLogisticsTradeInfo/V2';// 物流訂單查詢
 		const PRINT_TRADE_DOC = 'https://logistics.ecpay.com.tw/helper/printTradeDocument';// 產生托運單(宅配)/一段標(超商取貨)
 		const PRINT_UNIMART_C2C_BILL = 'https://logistics.ecpay.com.tw/Express/PrintUniMartC2COrderInfo';// 列印繳款單(統一超商C2C)
 		const PRINT_FAMILY_C2C_BILL = 'https://logistics.ecpay.com.tw/Express/PrintFAMIC2COrderInfo';// 全家列印小白單(全家超商C2C)
+		const Print_HILIFE_C2C_BILL = 'https://logistics.ecpay.com.tw/Express/PrintHILIFEC2COrderInfo';// 萊爾富列印小白單(萊爾富超商C2C)
+		const CREATE_TEST_DATA = 'https://logistics.ecpay.com.tw/Express/CreateTestData';// 產生 B2C 測標資料
 	}
 	
 	/**
@@ -103,15 +110,19 @@
         const CVS_MAP = 'https://logistics.ecpay.com.tw/Express/map';// 電子地圖(測試環境有問題，直接使用正式環境URL)
 		const SHIPPING_ORDER = 'https://logistics-stage.ecpay.com.tw/Express/Create';// 物流訂單建立
 		const HOME_RETURN_ORDER = 'https://logistics-stage.ecpay.com.tw/Express/ReturnHome';// 宅配逆物流訂單
+		const UNIMART_RETURN_ORDER = 'https://logistics-stage.ecpay.com.tw/express/ReturnUniMartCVS';// 超商取貨逆物流訂單(統一超商B2C)
+		const HILIFE_RETURN_ORDER = 'https://logistics-stage.ecpay.com.tw/express/ReturnHiLifeCVS';// 超商取貨逆物流訂單(萊爾富超商B2C)
 		const FAMILY_RETURN_ORDER = 'https://logistics-stage.ecpay.com.tw/express/ReturnCVS';// 超商取貨逆物流訂單(全家超商B2C)
 		const FAMILY_RETURN_CHECK = 'https://logistics-stage.ecpay.com.tw/Helper/LogisticsCheckAccoounts';// 全家逆物流核帳(全家超商B2C)
 		const UNIMART_UPDATE_LOGISTICS_INFO = 'https://logistics-stage.ecpay.com.tw/Helper/UpdateShipmentInfo';// 統一修改物流資訊(全家超商B2C)
 		const UNIMART_UPDATE_STORE_INFO = 'https://logistics-stage.ecpay.com.tw/Express/UpdateStoreInfo';// 更新門市(統一超商C2C)
 		const UNIMART_CANCEL_LOGISTICS_ORDER = 'https://logistics-stage.ecpay.com.tw/Express/CancelC2COrder';// 取消訂單(統一超商C2C)
-		const QUERY_LOGISTICS_INFO = 'https://logistics-stage.ecpay.com.tw/Helper/QueryLogisticsTradeInfo';// 物流訂單查詢
+		const QUERY_LOGISTICS_INFO = 'https://logistics-stage.ecpay.com.tw/Helper/QueryLogisticsTradeInfo/V2';// 物流訂單查詢
 		const PRINT_TRADE_DOC = 'https://logistics-stage.ecpay.com.tw/helper/printTradeDocument';// 產生托運單(宅配)/一段標(超商取貨)
 		const PRINT_UNIMART_C2C_BILL = 'https://logistics-stage.ecpay.com.tw/Express/PrintUniMartC2COrderInfo';// 列印繳款單(統一超商C2C)
 		const PRINT_FAMILY_C2C_BILL = 'https://logistics-stage.ecpay.com.tw/Express/PrintFAMIC2COrderInfo';// 全家列印小白單(全家超商C2C)
+		const Print_HILIFE_C2C_BILL = 'https://logistics-stage.ecpay.com.tw/Express/PrintHILIFEC2COrderInfo';// 萊爾富列印小白單(萊爾富超商C2C)
+		const CREATE_TEST_DATA = 'https://logistics-stage.ecpay.com.tw/Express/CreateTestData';// 產生 B2C 測標資料
 	}
 	
 	/**
@@ -181,6 +192,9 @@
 		const TIME_17_20 = '3';// 17~20時
 		const UNLIMITED = '4';// 不限時
 		const TIME_20_21 = '5';// 20~21時(需限定區域)
+		const TIME_9_17 = '12';// 早午 9~17
+		const TIME_9_12_17_20 = '13';// 早晚 9~12 & 17~20
+		const TIME_13_20 = '23';// 午晚 13~20
 	}
 	
 	/**
@@ -242,7 +256,6 @@
 			// 參數檢查
 			$this->ValidateID('MerchantID', $this->PostParams['MerchantID'], 10);
 			$this->ServiceURL = $this->GetURL('CVS_MAP');
-			$this->ValidateMerchantTradeNo();
 			$this->ValidateLogisticsSubType();
 			$this->ValidateIsCollection();
 			$this->ValidateURL('ServerReplyURL', $this->PostParams['ServerReplyURL']);
@@ -297,7 +310,6 @@
             $this->ValidateHashIV();
 			$this->ValidateID('MerchantID', $this->PostParams['MerchantID'], 10);
 			$this->ServiceURL = $this->GetURL('SHIPPING_ORDER');
-			$this->ValidateMerchantTradeNo();
 			$this->ValidateMerchantTradeDate();
 			$this->ValidateLogisticsType();
 			$this->ValidateLogisticsSubType();
@@ -324,15 +336,17 @@
 						'Temperature' => Temperature::ROOM,
 						'Distance' => Distance::SAME,
 						'Specification' => Specification::CM_60,
-						'ScheduledDeliveryTime' => ''
+						'ScheduledDeliveryTime' => '',
+						'ScheduledDeliveryDate' => '',
+						'PackageCount' => 0
 					);
 					$this->PostParams = $this->GetPostParams($this->SendExtend, $HomeParamList, $this->PostParams);
 					$this->PostParams['ScheduledPickupTime'] = ScheduledPickupTime::UNLIMITED;
 					
 					$this->ValidateZipCode('SenderZipCode', $this->PostParams['SenderZipCode']);
-					$this->ValidateString('SenderAddress', $this->PostParams['SenderAddress'], 200);
+					$this->ValidateAddress('SenderAddress', $this->PostParams['SenderAddress'], 6, 60);
 					$this->ValidateZipCode('ReceiverZipCode', $this->PostParams['ReceiverZipCode']);
-					$this->ValidateString('ReceiverAddress', $this->PostParams['ReceiverAddress'], 200);
+					$this->ValidateAddress('ReceiverAddress', $this->PostParams['ReceiverAddress'], 6, 60);
 					$this->ValidateTemperature();
 					$this->ValidateDistance();
 					$this->ValidateSpecification();
@@ -361,8 +375,8 @@
 				}
 			}
 			
-			if ($this->PostParams['LogisticsSubType'] == LogisticsSubType::FAMILY_C2C or $this->PostParams['LogisticsSubType'] == LogisticsSubType::UNIMART_C2C) {
-				// 物流子類型(LogisticsSubType)為全家店到店(FAMIC2C)、 統一超商交貨便(UNIMARTC2C)時，不可為空
+			if ($this->PostParams['LogisticsSubType'] == LogisticsSubType::HILIFE_C2C or $this->PostParams['LogisticsSubType'] == LogisticsSubType::UNIMART_C2C) {
+				// 物流子類型(LogisticsSubType)為萊爾富店到店(HILIFEC2C：萊爾富店到店)、 統一超商交貨便(UNIMARTC2C)時，不可為空
 				$this->ValidateString('GoodsName', $this->PostParams['GoodsName'], 60);
 			} else {
 				$this->ValidateString('GoodsName', $this->PostParams['GoodsName'], 60, true);
@@ -370,14 +384,14 @@
 			
 			$this->ValidateString('SenderName', $this->PostParams['SenderName'], 10);
 			$this->ValidatePhoneNumber('SenderPhone', $this->PostParams['SenderPhone'], true);
-			$this->ValidatePhoneNumber('SenderCellPhone', $this->PostParams['SenderCellPhone'], true);
+			$this->ValidateCellphoneNumber('SenderCellPhone', $this->PostParams['SenderCellPhone'], true);
 			if ($this->PostParams['LogisticsType'] == LogisticsType::HOME) {
 				// 物流類型(LogisticsType)為宅配(Home)時，寄件人電話(SenderPhone)或寄件人手機(SenderCellPhone)不可為空
 				if (empty($this->PostParams['SenderPhone']) and empty($this->PostParams['SenderCellPhone'])) {
 					throw new Exception('SenderPhone or SenderCellPhone is required when LogisticsType is Home.');
 				}
-			} else if ($this->PostParams['LogisticsSubType'] == LogisticsSubType::UNIMART_C2C) {
-				// 物流子類型(LogisticsSubType)為統一超商交貨便(UNIMARTC2C)時，寄件人手機(SenderCellPhone)不可為空
+			} else if ($this->PostParams['LogisticsSubType'] == LogisticsSubType::HILIFE_C2C or $this->PostParams['LogisticsSubType'] == LogisticsSubType::UNIMART_C2C) {
+				// 物流子類型(LogisticsSubType)為統一超商交貨便(UNIMARTC2C)、萊爾富店到店(HILIFEC2C)時，寄件人手機(SenderCellPhone)不可為空
 				if (empty($this->PostParams['SenderCellPhone'])) {
 					throw new Exception('SenderCellPhone is required when LogisticsSubType is UNIMARTC2C.');
 				}
@@ -385,20 +399,36 @@
 			
 			$this->ValidateString('ReceiverName', $this->PostParams['ReceiverName'], 10);
 			$this->ValidatePhoneNumber('ReceiverPhone', $this->PostParams['ReceiverPhone'], true);
-			$this->ValidatePhoneNumber('ReceiverCellPhone', $this->PostParams['ReceiverCellPhone'], true);
+			$this->ValidateCellphoneNumber('ReceiverCellPhone', $this->PostParams['ReceiverCellPhone'], true);
 			if ($this->PostParams['LogisticsType'] == LogisticsType::HOME) {
 				// 物流類型(LogisticsType)為宅配(Home)時，收件人電話(ReceiverPhone)或收件人手機(ReceiverCellPhone)不可為空
 				if (empty($this->PostParams['ReceiverPhone']) and empty($this->PostParams['ReceiverCellPhone'])) {
 					throw new Exception('ReceiverPhone or ReceiverCellPhone is required when LogisticsType is Home.');
 				}
-			} else if ($this->PostParams['LogisticsSubType'] == LogisticsSubType::UNIMART_C2C) {
-				// 物流子類型(LogisticsSubType)為統一超商交貨便(UNIMARTC2C)時，收件人手機(ReceiverCellPhone)不可為空
+			} else if (
+				$this->PostParams['LogisticsSubType'] == LogisticsSubType::UNIMART or
+				$this->PostParams['LogisticsSubType'] == LogisticsSubType::FAMILY or
+				$this->PostParams['LogisticsSubType'] == LogisticsSubType::HILIFE or
+				$this->PostParams['LogisticsSubType'] == LogisticsSubType::UNIMART_C2C or
+				$this->PostParams['LogisticsSubType'] == LogisticsSubType::HILIFE_C2C
+			) {
+				// 物流子類型(LogisticsSubType)為統一超商(UNIMART)、全家(FAMILY)、萊爾富(HILIFE)、統一超商交貨便(UNIMARTC2C)、萊爾富富店到店(HILIFEC2C)時，收件人手機(ReceiverCellPhone)不可為空
 				if (empty($this->PostParams['ReceiverCellPhone'])) {
 					throw new Exception('ReceiverCellPhone is required when LogisticsSubType is UNIMARTC2C.');
 				}
 			}
+
+			if ($this->PostParams['LogisticsSubType'] == LogisticsSubType::ECAN and $this->PostParams['Temperature'] !== Temperature::ROOM) {
+				// 物流子類型為宅配通(ECAN)時，溫層(Temperature)只能用常溫(ROOM)
+				throw new Exception('Temperature should be ROOM when LogisticsSubType is ECAN.');
+			}
+
+			if ($this->PostParams['LogisticsSubType'] == LogisticsSubType::ECAN and date('Ymd', strtotime($this->PostParams['ScheduledDeliveryDate'])) < date('Ymd', strtotime('+3 day'))) {
+				// 指定送達日期為該訂單建立時間 + 3 天
+				throw new Exception('ScheduledDeliveryDate should be the time that create order + 3 day.');
+			}
 			
-			$this->ValidateEmail('ReceiverEmail', $this->PostParams['ReceiverEmail'], 100, true);
+			$this->ValidateEmail('ReceiverEmail', $this->PostParams['ReceiverEmail'], 50, true);
 			$this->ValidateString('TradeDesc', $this->PostParams['TradeDesc'], 200, true);
 			$this->ValidateURL('ServerReplyURL', $this->PostParams['ServerReplyURL']);
 			$this->ValidateURL('ClientReplyURL', $this->PostParams['ClientReplyURL'], 200, true);
@@ -474,7 +504,6 @@
             $this->ValidateHashIV();
 			$this->ValidateID('MerchantID', $this->PostParams['MerchantID'], 10);
 			$this->ServiceURL = $this->GetURL('SHIPPING_ORDER');
-			$this->ValidateMerchantTradeNo();
 			$this->ValidateMerchantTradeDate();
 			$this->ValidateLogisticsType();
 			$this->ValidateLogisticsSubType();
@@ -501,15 +530,17 @@
 						'Temperature' => Temperature::ROOM,
 						'Distance' => Distance::SAME,
 						'Specification' => Specification::CM_60,
-						'ScheduledDeliveryTime' => ''
+						'ScheduledDeliveryTime' => '',
+						'ScheduledDeliveryDate' => '',
+						'PackageCount' => 0
 					);
 					$this->PostParams = $this->GetPostParams($this->SendExtend, $HomeParamList, $this->PostParams);
 					$this->PostParams['ScheduledPickupTime'] = ScheduledPickupTime::UNLIMITED;
 					
 					$this->ValidateZipCode('SenderZipCode', $this->PostParams['SenderZipCode']);
-					$this->ValidateString('SenderAddress', $this->PostParams['SenderAddress'], 200);
+					$this->ValidateAddress('SenderAddress', $this->PostParams['SenderAddress'], 6, 60);
 					$this->ValidateZipCode('ReceiverZipCode', $this->PostParams['ReceiverZipCode']);
-					$this->ValidateString('ReceiverAddress', $this->PostParams['ReceiverAddress'], 200);
+					$this->ValidateAddress('ReceiverAddress', $this->PostParams['ReceiverAddress'], 6, 60);
 					$this->ValidateTemperature();
 					$this->ValidateDistance();
 					$this->ValidateSpecification();
@@ -538,8 +569,8 @@
 				}
 			}
 			
-			if ($this->PostParams['LogisticsSubType'] == LogisticsSubType::FAMILY_C2C or $this->PostParams['LogisticsSubType'] == LogisticsSubType::UNIMART_C2C) {
-				// 物流子類型(LogisticsSubType)為全家店到店(FAMIC2C)、 統一超商交貨便(UNIMARTC2C)時，不可為空
+			if ($this->PostParams['LogisticsSubType'] == LogisticsSubType::HILIFE_C2C or $this->PostParams['LogisticsSubType'] == LogisticsSubType::UNIMART_C2C) {
+				// 物流子類型(LogisticsSubType)為萊爾富店到店(HILIFEC2C：萊爾富店到店)、 統一超商交貨便(UNIMARTC2C)時，不可為空
 				$this->ValidateString('GoodsName', $this->PostParams['GoodsName'], 60);
 			} else {
 				$this->ValidateString('GoodsName', $this->PostParams['GoodsName'], 60, true);
@@ -547,14 +578,14 @@
 			
 			$this->ValidateString('SenderName', $this->PostParams['SenderName'], 10);
 			$this->ValidatePhoneNumber('SenderPhone', $this->PostParams['SenderPhone'], true);
-			$this->ValidatePhoneNumber('SenderCellPhone', $this->PostParams['SenderCellPhone'], true);
+			$this->ValidateCellphoneNumber('SenderCellPhone', $this->PostParams['SenderCellPhone'], true);
 			if ($this->PostParams['LogisticsType'] == LogisticsType::HOME) {
 				// 物流類型(LogisticsType)為宅配(Home)時，寄件人電話(SenderPhone)或寄件人手機(SenderCellPhone)不可為空
 				if (empty($this->PostParams['SenderPhone']) and empty($this->PostParams['SenderCellPhone'])) {
 					throw new Exception('SenderPhone or SenderCellPhone is required when LogisticsType is Home.');
 				}
-			} else if ($this->PostParams['LogisticsSubType'] == LogisticsSubType::UNIMART_C2C) {
-				// 物流子類型(LogisticsSubType)為統一超商交貨便(UNIMARTC2C)時，寄件人手機(SenderCellPhone)不可為空
+			} else if ($this->PostParams['LogisticsSubType'] == LogisticsSubType::HILIFE_C2C or $this->PostParams['LogisticsSubType'] == LogisticsSubType::UNIMART_C2C) {
+				// 物流子類型(LogisticsSubType)為統一超商交貨便(UNIMARTC2C)、萊爾富店到店(HILIFEC2C)時，寄件人手機(SenderCellPhone)不可為空
 				if (empty($this->PostParams['SenderCellPhone'])) {
 					throw new Exception('SenderCellPhone is required when LogisticsSubType is UNIMARTC2C.');
 				}
@@ -562,20 +593,36 @@
 			
 			$this->ValidateString('ReceiverName', $this->PostParams['ReceiverName'], 10);
 			$this->ValidatePhoneNumber('ReceiverPhone', $this->PostParams['ReceiverPhone'], true);
-			$this->ValidatePhoneNumber('ReceiverCellPhone', $this->PostParams['ReceiverCellPhone'], true);
+			$this->ValidateCellphoneNumber('ReceiverCellPhone', $this->PostParams['ReceiverCellPhone'], true);
 			if ($this->PostParams['LogisticsType'] == LogisticsType::HOME) {
 				// 物流類型(LogisticsType)為宅配(Home)時，收件人電話(ReceiverPhone)或收件人手機(ReceiverCellPhone)不可為空
 				if (empty($this->PostParams['ReceiverPhone']) and empty($this->PostParams['ReceiverCellPhone'])) {
 					throw new Exception('ReceiverPhone or ReceiverCellPhone is required when LogisticsType is Home.');
 				}
-			} else if ($this->PostParams['LogisticsSubType'] == LogisticsSubType::UNIMART_C2C) {
-				// 物流子類型(LogisticsSubType)為統一超商交貨便(UNIMARTC2C)時，收件人手機(ReceiverCellPhone)不可為空
+			} else if (
+				$this->PostParams['LogisticsSubType'] == LogisticsSubType::UNIMART or
+				$this->PostParams['LogisticsSubType'] == LogisticsSubType::FAMILY or
+				$this->PostParams['LogisticsSubType'] == LogisticsSubType::HILIFE or
+				$this->PostParams['LogisticsSubType'] == LogisticsSubType::UNIMART_C2C or
+				$this->PostParams['LogisticsSubType'] == LogisticsSubType::HILIFE_C2C
+			) {
+				// 物流子類型(LogisticsSubType)為統一超商(UNIMART)、全家(FAMILY)、萊爾富(HILIFE)、統一超商交貨便(UNIMARTC2C)、萊爾富富店到店(HILIFEC2C)時，收件人手機(ReceiverCellPhone)不可為空
 				if (empty($this->PostParams['ReceiverCellPhone'])) {
 					throw new Exception('ReceiverCellPhone is required when LogisticsSubType is UNIMARTC2C.');
 				}
 			}
 			
-			$this->ValidateEmail('ReceiverEmail', $this->PostParams['ReceiverEmail'], 100, true);
+			if ($this->PostParams['LogisticsSubType'] == LogisticsSubType::ECAN and $this->PostParams['Temperature'] !== Temperature::ROOM) {
+				// 物流子類型為宅配通(ECAN)時，溫層(Temperature)只能用常溫(ROOM)
+				throw new Exception('Temperature should be ROOM when LogisticsSubType is ECAN.');
+			}
+
+			if ($this->PostParams['LogisticsSubType'] == LogisticsSubType::ECAN and date('Ymd', strtotime($this->PostParams['ScheduledDeliveryDate'])) < date('Ymd', strtotime('+3 day'))) {
+				// 指定送達日期為該訂單建立時間 + 3 天
+				throw new Exception('ScheduledDeliveryDate should be the time that create order + 3 day.');
+			}
+
+			$this->ValidateEmail('ReceiverEmail', $this->PostParams['ReceiverEmail'], 50, true);
 			$this->ValidateString('TradeDesc', $this->PostParams['TradeDesc'], 200, true);
 			$this->ValidateURL('ServerReplyURL', $this->PostParams['ServerReplyURL']);
 			
@@ -681,14 +728,15 @@
 				'Specification' => Specification::CM_60,
 				'ScheduledPickupTime' => ScheduledPickupTime::UNLIMITED,
 				'ScheduledDeliveryTime' => '',
+				'ScheduledDeliveryDate' => '',
+				'PackageCount' => 0,
 				'Remark' => '',
 				'PlatformID' => ''
 			);
 			$this->PostParams = $this->GetPostParams($this->Send, $ParamList);
 			$this->PostParams['ScheduledPickupTime'] = ScheduledPickupTime::UNLIMITED; // 預定取件時段(ScheduledPickupTime)固定為不限時
-			$this->PostParams['LogisticsType'] = LogisticsType::HOME; // 物流類型固定為宅配(HOME)
 			$IsAllpayLogisticsIdEmpty = false; // 物流交易編號(AllPayLogisticsID)是否為空
-			$IsAllowEmpty = false;
+			$IsAllowEmpty = true;
 			$MinAmount = 1; // 金額下限
 			$MaxAmount = 20000; // 金額上限
 			
@@ -699,7 +747,9 @@
 			$this->ServiceURL = $this->GetURL('HOME_RETURN_ORDER');
 			
 			$this->ValidateID('AllPayLogisticsID', $this->PostParams['AllPayLogisticsID'], 20, true);
-			$this->ValidateLogisticsSubType(false);
+
+			$this->ValidateLogisticsSubType(true);
+
 			// 物流交易編號(AllPayLogisticsID)與物流子類型(LogisticsSubType)擇一不可為空
 			if (empty($this->PostParams['AllPayLogisticsID'])) {
 				$IsAllpayLogisticsIdEmpty = true;
@@ -714,10 +764,10 @@
 			if ($IsAllpayLogisticsIdEmpty) {
 				$IsAllowEmpty = false;
 			}
-			$this->ValidateString('SenderName', $this->PostParams['SenderName'], 60, $IsAllowEmpty);
+			$this->ValidateString('SenderName', $this->PostParams['SenderName'], 10, $IsAllowEmpty);
 			
 			$this->ValidatePhoneNumber('SenderPhone', $this->PostParams['SenderPhone'], true);
-			$this->ValidatePhoneNumber('SenderCellPhone', $this->PostParams['SenderCellPhone'], true);
+			$this->ValidateCellphoneNumber('SenderCellPhone', $this->PostParams['SenderCellPhone'], true);
 			// 物流交易編號(AllPayLogisticsID)為空值時，退貨人電話(SenderPhone)與退貨人手機(SenderCellPhone)擇一不可為空。
 			if ($IsAllpayLogisticsIdEmpty) {
 				if (empty($this->PostParams['SenderPhone']) and empty($this->PostParams['SenderCellPhone'])) {
@@ -729,13 +779,13 @@
 			$this->ValidateZipCode('SenderZipCode', $this->PostParams['SenderZipCode'], $IsAllowEmpty);
 			
 			// 物流交易編號(AllPayLogisticsID)為空值時，SenderAddress(SenderAddress)不可為空。
-			$this->ValidateString('SenderAddress', $this->PostParams['SenderAddress'], 200, $IsAllowEmpty);
+			$this->ValidateAddress('SenderAddress', $this->PostParams['SenderAddress'], 6, 60, $IsAllowEmpty);
 			
 			// 若物流交易編號(AllPayLogisticsID)為空值時，收件人姓名(ReceiverName)不可為空。
 			$this->ValidateString('ReceiverName', $this->PostParams['ReceiverName'], 10, $IsAllowEmpty);
 			
 			$this->ValidatePhoneNumber('ReceiverPhone', $this->PostParams['ReceiverPhone'], 20, true);
-			$this->ValidatePhoneNumber('ReceiverCellPhone', $this->PostParams['ReceiverCellPhone'], 20, true);
+			$this->ValidateCellphoneNumber('ReceiverCellPhone', $this->PostParams['ReceiverCellPhone'], 20, true);
 			// 物流交易編號(AllPayLogisticsID)為空值時，收件人電話(ReceiverPhone)與收件人手機(ReceiverCellPhone)擇一不可為空。
 			if ($IsAllpayLogisticsIdEmpty) {
 				if (empty($this->PostParams['ReceiverPhone']) and empty($this->PostParams['ReceiverCellPhone'])) {
@@ -747,8 +797,18 @@
             $this->ValidateZipCode('ReceiverZipCode', $this->PostParams['ReceiverZipCode'], $IsAllowEmpty);
 			
 			// 若物流交易編號(AllPayLogisticsID)為空值時，收件人地址(ReceiverAddress)不可為空。
-			$this->ValidateString('ReceiverAddress', $this->PostParams['ReceiverAddress'], 200, $IsAllowEmpty);
-			
+			$this->ValidateAddress('ReceiverAddress', $this->PostParams['ReceiverAddress'], 6, 60, $IsAllowEmpty);
+
+			if ($this->PostParams['LogisticsSubType'] == LogisticsSubType::ECAN and $this->PostParams['Temperature'] !== Temperature::ROOM) {
+				// 物流子類型為宅配通(ECAN)時，溫層(Temperature)只能用常溫(ROOM)
+				throw new Exception('Temperature should be ROOM when LogisticsSubType is ECAN.');
+			}
+
+			if ($this->PostParams['LogisticsSubType'] == LogisticsSubType::ECAN and date('Ymd', strtotime($this->PostParams['ScheduledDeliveryDate'])) < date('Ymd', strtotime('+3 day'))) {
+				// 指定送達日期為該訂單建立時間 + 3 天
+				throw new Exception('ScheduledDeliveryDate should be the time that create order + 3 day.');
+			}
+
 			$this->ValidateAmount('GoodsAmount', $this->PostParams['GoodsAmount']);
 			if ($this->PostParams['GoodsAmount'] < $MinAmount or $this->PostParams['GoodsAmount'] > $MaxAmount){
 				throw new Exception('Invalid GoodsAmount.');
@@ -774,6 +834,136 @@
 			return $Result;
 		}
 		
+		/**
+		 *  超商取貨逆物流訂單(統一超商B2C)
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK
+		 * @return		Array
+		 * @version		1.0.1012
+		 */
+		public function CreateUnimartB2CReturnOrder() {
+			
+			// 參數初始化
+			$ParamList = array(
+				'MerchantID' => '',
+				'AllPayLogisticsID' => '',
+				'ServerReplyURL' => '',
+				'GoodsName' => '',
+				'GoodsAmount' => 0,
+				'SenderName' => '',
+				'SenderPhone' => '',
+				'Remark' => '',
+				'PlatformID' => ''
+			);
+			$this->PostParams = $this->GetPostParams($this->Send, $ParamList);
+			$this->PostParams['CollectionAmount'] = 0;
+			$this->PostParams['ServiceType'] = 4;// 退貨不付款
+			
+			// 參數檢查
+            $this->ValidateHashKey();
+            $this->ValidateHashIV();
+			$this->ValidateID('MerchantID', $this->PostParams['MerchantID'], 10);
+			$this->ServiceURL = $this->GetURL('UNIMART_RETURN_ORDER');
+			$this->ValidateID('AllPayLogisticsID', $this->PostParams['AllPayLogisticsID'], 20, true);
+			$this->ValidateURL('ServerReplyURL', $this->PostParams['ServerReplyURL']);
+			$this->ValidateString('GoodsName', $this->PostParams['GoodsName'], 60, true);
+			$this->ValidateAmount('GoodsAmount', $this->PostParams['GoodsAmount']);
+			$this->ValidateString('SenderName', $this->PostParams['SenderName'], 50);
+			$this->ValidatePhoneNumber('SenderPhone', $this->PostParams['SenderPhone'], true);
+			$this->ValidateString('Remark', $this->PostParams['Remark'], 20, true);
+			$this->ValidateID('PlatformID', $this->PostParams['PlatformID'], 10, true);
+
+			$MinAmount = 1; // 金額下限
+			$MaxAmount = 19999; // 金額上限
+			if ($this->PostParams['GoodsAmount'] < $MinAmount or $this->PostParams['GoodsAmount'] > $MaxAmount){
+				throw new Exception('Invalid GoodsAmount.');
+			}	
+			
+			// 產生 CheckMacValue
+			$this->PostParams['CheckMacValue'] = $this->GenCheckMacValue($this->PostParams, $this->HashKey, $this->HashIV);
+			
+			// 解析回傳結果
+            // 正確：RtnMerchantTradeNo | RtnOrderNo
+            // 錯誤：|ErrorMessage
+			$Feedback = $this->ServerPost($this->PostParams, $this->ServiceURL);
+			$Pieces = explode('|', $Feedback);
+			$Result = array('RtnMerchantTradeNo' => '', 'RtnOrderNo' => '');
+			if (empty($Pieces[0])) {
+				$Result = array('ErrorMessage' => $Pieces[1]);
+			} else {
+				$Result['RtnMerchantTradeNo'] = $Pieces[0];
+				$Result['RtnOrderNo'] = $Pieces[1];
+			}
+			
+			return $Result;
+		}
+
+		/**
+		 *  超商取貨逆物流訂單(萊爾富超商B2C)
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK
+		 * @return		Array
+		 * @version		1.0.1012
+		 */
+		public function CreateHiLifeB2CReturnOrder() {
+			
+			// 參數初始化
+			$ParamList = array(
+				'MerchantID' => '',
+				'AllPayLogisticsID' => '',
+				'ServerReplyURL' => '',
+				'GoodsName' => '',
+				'GoodsAmount' => 0,
+				'SenderName' => '',
+				'SenderPhone' => '',
+				'Remark' => '',
+				'PlatformID' => ''
+			);
+			$this->PostParams = $this->GetPostParams($this->Send, $ParamList);
+			$this->PostParams['CollectionAmount'] = 0;
+			$this->PostParams['ServiceType'] = 4;// 退貨不付款
+			
+			// 參數檢查
+            $this->ValidateHashKey();
+            $this->ValidateHashIV();
+			$this->ValidateID('MerchantID', $this->PostParams['MerchantID'], 10);
+			$this->ServiceURL = $this->GetURL('HILIFE_RETURN_ORDER');
+			$this->ValidateID('AllPayLogisticsID', $this->PostParams['AllPayLogisticsID'], 20, true);
+			$this->ValidateURL('ServerReplyURL', $this->PostParams['ServerReplyURL']);
+			$this->ValidateString('GoodsName', $this->PostParams['GoodsName'], 60, true);
+			$this->ValidateAmount('GoodsAmount', $this->PostParams['GoodsAmount']);
+			$this->ValidateString('SenderName', $this->PostParams['SenderName'], 50);
+			$this->ValidatePhoneNumber('SenderPhone', $this->PostParams['SenderPhone'], true);
+			$this->ValidateString('Remark', $this->PostParams['Remark'], 20, true);
+			$this->ValidateID('PlatformID', $this->PostParams['PlatformID'], 10, true);
+
+			$MinAmount = 1; // 金額下限
+			$MaxAmount = 20000; // 金額上限
+			if ($this->PostParams['GoodsAmount'] < $MinAmount or $this->PostParams['GoodsAmount'] > $MaxAmount){
+				throw new Exception('Invalid GoodsAmount.');
+			}	
+			
+			// 產生 CheckMacValue
+			$this->PostParams['CheckMacValue'] = $this->GenCheckMacValue($this->PostParams, $this->HashKey, $this->HashIV);
+			
+			// 解析回傳結果
+            // 正確：RtnMerchantTradeNo | RtnOrderNo
+            // 錯誤：|ErrorMessage
+			$Feedback = $this->ServerPost($this->PostParams, $this->ServiceURL);
+			$Pieces = explode('|', $Feedback);
+			$Result = array('RtnMerchantTradeNo' => '', 'RtnOrderNo' => '');
+			if (empty($Pieces[0])) {
+				$Result = array('ErrorMessage' => $Pieces[1]);
+			} else {
+				$Result['RtnMerchantTradeNo'] = $Pieces[0];
+				$Result['RtnOrderNo'] = $Pieces[1];
+			}
+			
+			return $Result;
+		}
+
 		/**
 		 *  超商取貨逆物流訂單(全家超商B2C)
 		 *
@@ -840,6 +1030,12 @@
 					throw new Exception('Cost number and GoodsName number do not match.');
 				}
 			}
+
+			$MinAmount = 1; // 金額下限
+			$MaxAmount = 20000; // 金額上限
+			if ($this->PostParams['GoodsAmount'] < $MinAmount or $this->PostParams['GoodsAmount'] > $MaxAmount){
+				throw new Exception('Invalid GoodsAmount.');
+			}	
 			
 			// 產生 CheckMacValue
 			$this->PostParams['CheckMacValue'] = $this->GenCheckMacValue($this->PostParams, $this->HashKey, $this->HashIV);
@@ -1193,7 +1389,76 @@
 			return $this->GenPostHTML($ButtonDesc, $Target);
 		}
 		
+		/**
+		 *  萊爾富列印小白單(萊爾富超商C2C)
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK
+		 * @param		String $ButtonDesc 按鈕顯示名稱
+		 * @param		String $Target 表單 action 目標
+		 * @return		String
+		 * @version		1.0.1012
+		 */
+		public function PrintHiLifeC2CBill($ButtonDesc = '萊爾富列印小白單(萊爾富超商C2C)', $Target = '_blank') {
+			
+			// 參數初始化
+			$ParamList = array(
+				'MerchantID' => '',
+				'AllPayLogisticsID' => '',
+				'CVSPaymentNo' => '',
+				'PlatformID' => ''
+			);
+			$this->PostParams = $this->GetPostParams($this->Send, $ParamList);
+			
+			// 參數檢查
+            $this->ValidateHashKey();
+            $this->ValidateHashIV();
+			$this->ValidateID('MerchantID', $this->PostParams['MerchantID'], 10);
+			$this->ServiceURL = $this->GetURL('Print_HILIFE_C2C_BILL');
+			$this->ValidateID('AllPayLogisticsID', $this->PostParams['AllPayLogisticsID'], 20);
+			$this->ValidateMixTypeID('CVSPaymentNo', $this->PostParams['CVSPaymentNo'], 15);
+			$this->ValidateID('PlatformID', $this->PostParams['PlatformID'], 10, true);
+			
+			// 產生 CheckMacValue
+			$this->PostParams['CheckMacValue'] = $this->GenCheckMacValue($this->PostParams, $this->HashKey, $this->HashIV);
+			
+			return $this->GenPostHTML($ButtonDesc, $Target);
+		}
 		
+		/**
+		 *  產生 B2C 測標資料
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	SDK
+		 * @param		String $ButtonDesc 按鈕顯示名稱
+		 * @param		String $Target 表單 action 目標
+		 * @return		String
+		 * @version		1.0.1012
+		 */
+		public function CreateTestData($ButtonDesc = '產生 B2C 測標資料', $Target = '_blank') {
+			
+			// 參數初始化
+			$ParamList = array(
+				'MerchantID' => '',
+				'ClientReplyURL' => '',
+				'LogisticsSubType' => '',
+				'PlatformID' => ''
+			);
+			$this->PostParams = $this->GetPostParams($this->Send, $ParamList);
+			
+			// 參數檢查
+            $this->ValidateHashKey();
+            $this->ValidateHashIV();
+			$this->ValidateID('MerchantID', $this->PostParams['MerchantID'], 10);
+			$this->ServiceURL = $this->GetURL('CREATE_TEST_DATA');
+			$this->ValidateLogisticsSubType();
+			$this->ValidateID('PlatformID', $this->PostParams['PlatformID'], 10, true);
+			
+			// 產生 CheckMacValue
+			$this->PostParams['CheckMacValue'] = $this->GenCheckMacValue($this->PostParams, $this->HashKey, $this->HashIV);
+			
+			return $this->GenPostHTML($ButtonDesc, $Target);
+		}
 		
 		/**
 		 *  Hash Key 檢查
@@ -1337,7 +1602,27 @@
 				$this->IsAllowEmpty($Name, $AllowEmpty);
 			} else {
 				// 格式檢查
-				$this->IsValidFormat($Name, '/^\d{7,20}$/', $Value);
+				$this->IsValidFormat($Name, '/\(?\d{2}\)?\-?\d{5,8}\#?\d{0,6}/', $Value);
+			}
+		}
+
+		/**
+		 *  手機號碼檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		String	$Name		參數名稱
+		 * @param		String	$Value		參數內容
+		 * @param		Boolean	$AllowEmpty	是否允許空值
+		 * @version		1.0.1012
+		 */
+		private function ValidateCellphoneNumber($Name, $Value, $AllowEmpty = false) {
+			if (empty($Value)) {
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 格式檢查
+				$this->IsValidFormat($Name, '/^09\d{8}$/', $Value);
 			}
 		}
 		
@@ -1385,6 +1670,37 @@
 			}
 		}
 		
+		/**
+		 *  地址檢查
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		String	$Name		參數名稱
+		 * @param		String	$Value		參數內容
+		 * @param		Integer	$MinLength	參數最小限制長度
+		 * @param		Integer	$MaxLength	參數最大限制長度
+		 * @param		Boolean	$AllowEmpty	是否允許空值
+		 * @version		1.0.1012
+		 */
+		private function ValidateAddress($Name, $Value, $MinLength = 1, $MaxLength = 1, $AllowEmpty = false) {
+			if (empty($Value)) {
+				// 是否允許空值
+				$this->IsAllowEmpty($Name, $AllowEmpty);
+			} else {
+				// 長度檢查
+
+				if ($MinLength) {
+					// 最小長度限制
+					$this->IsBelowLength($Name, $this->StringLength($Value, $this->Encode), $MinLength);
+				}
+
+				if ($MaxLength) {
+					// 最大長度限制
+					$this->IsOverLength($Name, $this->StringLength($Value, $this->Encode), $MaxLength);
+				}
+			}
+		}
+
 		/**
 		 *  混合型態 ID 檢查
 		 *
@@ -1493,7 +1809,10 @@
 					$LogisticsType = $this->PostParams['LogisticsType'];
 					// 宅配物流子類型檢查
 					if ($LogisticsType === LogisticsType::HOME) {
-						if ($Value != LogisticsSubType::TCAT) {
+						if (
+							$Value != LogisticsSubType::TCAT and
+							$Value != LogisticsSubType::ECAN
+						) {
 							throw new Exception('Invalid home delivery ' . $Name . '.');
 						}
 					}
@@ -1503,8 +1822,10 @@
 						if (
 							$Value != LogisticsSubType::FAMILY and
 							$Value != LogisticsSubType::UNIMART and
+							$Value != LogisticsSubType::HILIFE and
 							$Value != LogisticsSubType::FAMILY_C2C and
-							$Value != LogisticsSubType::UNIMART_C2C
+							$Value != LogisticsSubType::UNIMART_C2C and
+							$Value != LogisticsSubType::HILIFE_C2C
 						) {
 							throw new Exception('Invalid CVS pickup ' . $Name . '.');
 						}
@@ -1722,13 +2043,29 @@
 		 * @author		https://www.ecpay.com.tw
 		 * @category	Validate
 		 * @param		String	$Name			參數名稱
-		 * @param		Integer	$MaxLength		參數內容
-		 * @param		Boolean	$AllowEmpty	是否允許空值
+		 * @param		Integer	$Length			參數長度
+		 * @param		Integer	$MaxLength 		參數限制長度
 		 * @version		1.0.1012
 		 */
 		private function IsOverLength($Name, $Length, $MaxLength) {
 			if ($Length > $MaxLength) {
 				throw new Exception($Name . ' max length is ' . $MaxLength . '.');
+			}
+		}
+
+		/**
+		 *  是否超過長度限制
+		 *
+		 * @author		https://www.ecpay.com.tw
+		 * @category	Validate
+		 * @param		String	$Name			參數名稱
+		 * @param		Integer	$Length			參數長度
+		 * @param		Integer	$MinLength 		參數限制長度
+		 * @version		1.0.1012
+		 */
+		private function IsBelowLength($Name, $Length, $MinLength) {
+			if ($Length < $MinLength) {
+				throw new Exception($Name . ' min length is ' . $MinLength . '.');
 			}
 		}
 		
@@ -1846,6 +2183,8 @@
 					'CVS_MAP' => ECPayTestURL::CVS_MAP,
 					'SHIPPING_ORDER' => ECPayTestURL::SHIPPING_ORDER,
 					'HOME_RETURN_ORDER' => ECPayTestURL::HOME_RETURN_ORDER,
+					'UNIMART_RETURN_ORDER' => ECPayTestURL::UNIMART_RETURN_ORDER,
+					'HILIFE_RETURN_ORDER' => ECPayTestURL::HILIFE_RETURN_ORDER,
 					'FAMILY_RETURN_ORDER' => ECPayTestURL::FAMILY_RETURN_ORDER,
 					'FAMILY_RETURN_CHECK' => ECPayTestURL::FAMILY_RETURN_CHECK,
 					'UNIMART_UPDATE_LOGISTICS_INFO' => ECPayTestURL::UNIMART_UPDATE_LOGISTICS_INFO,
@@ -1855,6 +2194,8 @@
 					'PRINT_TRADE_DOC' => ECPayTestURL::PRINT_TRADE_DOC,
 					'PRINT_UNIMART_C2C_BILL' => ECPayTestURL::PRINT_UNIMART_C2C_BILL,
 					'PRINT_FAMILY_C2C_BILL' => ECPayTestURL::PRINT_FAMILY_C2C_BILL,
+					'Print_HILIFE_C2C_BILL' => ECPayTestURL::Print_HILIFE_C2C_BILL,
+					'CREATE_TEST_DATA' => ECPayTestURL::CREATE_TEST_DATA,
 				);
 			} else {
 				// 正式環境
@@ -1862,6 +2203,8 @@
 					'CVS_MAP' => ECPayURL::CVS_MAP,
 					'SHIPPING_ORDER' => ECPayURL::SHIPPING_ORDER,
 					'HOME_RETURN_ORDER' => ECPayURL::HOME_RETURN_ORDER,
+					'UNIMART_RETURN_ORDER' => ECPayURL::UNIMART_RETURN_ORDER,
+					'HILIFE_RETURN_ORDER' => ECPayURL::HILIFE_RETURN_ORDER,
 					'FAMILY_RETURN_ORDER' => ECPayURL::FAMILY_RETURN_ORDER,
 					'FAMILY_RETURN_CHECK' => ECPayURL::FAMILY_RETURN_CHECK,
 					'UNIMART_UPDATE_LOGISTICS_INFO' => ECPayURL::UNIMART_UPDATE_LOGISTICS_INFO,
@@ -1871,6 +2214,8 @@
 					'PRINT_TRADE_DOC' => ECPayURL::PRINT_TRADE_DOC,
 					'PRINT_UNIMART_C2C_BILL' => ECPayURL::PRINT_UNIMART_C2C_BILL,
 					'PRINT_FAMILY_C2C_BILL' => ECPayURL::PRINT_FAMILY_C2C_BILL,
+					'Print_HILIFE_C2C_BILL' => ECPayURL::Print_HILIFE_C2C_BILL,
+					'CREATE_TEST_DATA' => ECPayURL::CREATE_TEST_DATA,
 				);
 			}
 			
@@ -1930,7 +2275,7 @@
 		 * @version		1.0.1012
 		 */
 		private function StringLength($RetriveString, $Encode) {
-			return mb_strwidth($RetriveString, $Encode);
+			return mb_strlen($RetriveString, $Encode);
 		}
 		
 		/**
