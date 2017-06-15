@@ -1089,6 +1089,10 @@ class EcpayInvoice
 							$aReturn_CheckMacValue['IIS_Customer_Addr'] = $this->Replace_Symbol(urlencode($aReturn_CheckMacValue['IIS_Customer_Addr']));
 							$aReturn_CheckMacValue['IIS_Customer_Email'] = $this->Replace_Symbol(urlencode($aReturn_CheckMacValue['IIS_Customer_Email']));
 							
+							// hotfix 20170602
+							$aReturn_CheckMacValue['IIS_Customer_Email'] = str_replace('+',' ',$aReturn_CheckMacValue['IIS_Customer_Email']);
+
+
 							// EMIAL項目的@不做urlencode還原回來
 							$aReturn_CheckMacValue['IIS_Customer_Email'] = str_replace('%40', '@', $aReturn_CheckMacValue['IIS_Customer_Email']);
 						}
