@@ -1597,7 +1597,7 @@
 				$this->IsAllowEmpty($Name, $AllowEmpty);
 			} else {
 				// 格式檢查
-				$this->IsValidFormat($Name, '/^\(?\d{2}\)?\-?(\d{6,8})(#\d{1,6}){0,1}$/', $Value);
+				$this->IsValidFormat($Name, '/^\(?\d{2}\)?\-?\d{2,6}\-?\d{2,6}(#\d{1,6}){0,1}$/', $Value);
 			}
 		}
 
