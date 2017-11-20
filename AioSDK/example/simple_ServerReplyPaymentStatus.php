@@ -6,8 +6,11 @@
     try {
         // 收到綠界科技的付款結果訊息，並判斷檢查碼是否相符
         $AL = new ECPay_AllInOne();
+        $AL->MerchantID = '2000132';
         $AL->HashKey = '5294y06JbISpM5x9';
         $AL->HashIV = 'v77hoKGq4kWxNNIS';
+        // $AL->encryptType = ECPay_EncryptType::ENC_MD5; // MD5
+        $AL->encryptType = ECPay_EncryptType::ENC_SHA256; // SHA256
         $AL->CheckOutFeedback();
 
         // 以付款結果訊息進行相對應的處理
