@@ -1449,7 +1449,6 @@ class ECPay_Credit extends ECPay_Verification
 {
     public $arPayMentExtend = array(
                                     "CreditInstallment" => '',
-                                    "InstallmentAmount" => 0,
                                     "Redeem"            => FALSE,
                                     "UnionPay"          => FALSE,
                                     "Language"          => '',
