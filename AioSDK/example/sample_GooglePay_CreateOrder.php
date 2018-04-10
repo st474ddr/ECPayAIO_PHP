@@ -24,7 +24,7 @@
         $obj->Send['MerchantTradeDate'] = date('Y/m/d H:i:s');                        //交易時間
         $obj->Send['TotalAmount']       = 2000;                                       //交易金額
         $obj->Send['TradeDesc']         = "good to drink" ;                           //交易描述
-        $obj->Send['ChoosePayment']     = ECPay_PaymentMethod::AndroidPay ;           //付款方式:AndroidPay
+        $obj->Send['ChoosePayment']     = ECPay_PaymentMethod::GooglePay ;           //付款方式:GooglePay
 
         //訂單的商品資料
         array_push($obj->Send['Items'], array('Name' => "歐付寶黑芝麻豆漿", 'Price' => (int)"2000",
