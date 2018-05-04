@@ -408,19 +408,6 @@ if(!class_exists('ECPay_EncryptType'))
     }
 }
 
-/**
- * AllInOne short summary.
- *
- * AllInOne description.
- *
- * 1.1.20221    *支援站內付全方位金流
- * 1.1.180313   *修正信用卡記憶卡號參數
- * 1.1.180328   *Android Pay 更名為 Google Pay
- *
- * @version 1.1.180313
- * @author charlie & wesley
- */
-
 class ECPay_AllInOne {
 
     public $ServiceURL = 'ServiceURL';
@@ -1147,7 +1134,8 @@ Abstract class ECPay_Verification
             unset($arParameters['PlatformID']);
         }
 
-        if ($arParameters['ChoosePayment']!=='ALL') {
+        // 檢查是否支援 IgnorePayment 參數，不支援則移除此參數
+        if ($this->support_ignore_payment($arParameters) === false) {
             unset($arParameters['IgnorePayment']);
         }
 
@@ -1441,6 +1429,15 @@ Abstract class ECPay_Verification
         }
 
         return $arExtend ;
+    }
+
+    // 是否支援 IgnorePayment 參數
+    private function support_ignore_payment($arParameters = array()){
+        $arSupportPayments = array(
+            ECPay_PaymentMethod::ALL,
+            ECPay_PaymentMethod::Credit,
+        );
+        return (in_array($arParameters['ChoosePayment'], $arSupportPayments) === true);
     }
 }
 
