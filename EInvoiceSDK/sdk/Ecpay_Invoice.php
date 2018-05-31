@@ -83,7 +83,7 @@ abstract class EcpayDonation
 	const Yes = '1';
   
 	// 不捐贈
-	const No = '2';
+	const No = '0';
 }
 
 // 通關方式

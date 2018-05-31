@@ -16,7 +16,7 @@ try
 // 3.寫入發票相關資訊
 	$aItems	= array();
 	// 商品資訊
-	array_push($ecpay_invoice->Send['Items'], array('ItemName' => '商品名稱一', 'ItemCount' => 1, 'ItemWord' => '批', 'ItemPrice' => 100, 'ItemTaxType' => 1, 'ItemAmount' => 100, 'ItemRemark' => '商品備註一'  )) ;
+	array_push($ecpay_invoice->Send['Items'], array('ItemName' => '商品名稱一', 'ItemCount' => 1, 'ItemWord' => '批', 'ItemPrice' => 0, 'ItemTaxType' => 1, 'ItemAmount' => 0, 'ItemRemark' => '商品備註一'  )) ;
 	array_push($ecpay_invoice->Send['Items'], array('ItemName' => '商品名稱二', 'ItemCount' => 1, 'ItemWord' => '批', 'ItemPrice' => 150, 'ItemTaxType' => 1, 'ItemAmount' => 150, 'ItemRemark' => '商品備註二' )) ;
 	array_push($ecpay_invoice->Send['Items'], array('ItemName' => '商品名稱二', 'ItemCount' => 1, 'ItemWord' => '批', 'ItemPrice' => 250, 'ItemTaxType' => 1, 'ItemAmount' => 250, 'ItemRemark' => '商品備註三' )) ;
 	
@@ -30,13 +30,13 @@ try
 	$ecpay_invoice->Send['CustomerEmail'] 			= 'test@localhost.com' ;
 	$ecpay_invoice->Send['ClearanceMark'] 			= '' ;
 	$ecpay_invoice->Send['Print'] 				= '0' ;
-	$ecpay_invoice->Send['Donation'] 			= '2' ;
+	$ecpay_invoice->Send['Donation'] 			= '0' ;
 	$ecpay_invoice->Send['LoveCode'] 			= '' ;
 	$ecpay_invoice->Send['CarruerType'] 			= '' ;
 	$ecpay_invoice->Send['CarruerNum'] 			= '' ;
 	$ecpay_invoice->Send['TaxType'] 			= 1 ;
-	$ecpay_invoice->Send['SalesAmount'] 			= 500 ;
-	$ecpay_invoice->Send['InvoiceRemark'] 			= 'SDK TEST PHP V1.0.3' ;	
+	$ecpay_invoice->Send['SalesAmount'] 			= 400 ;
+	$ecpay_invoice->Send['InvoiceRemark'] 			= 'SDK TEST PHP V1.0.180302' ;	
 	$ecpay_invoice->Send['InvType'] 			= '07' ;
 	$ecpay_invoice->Send['vat'] 				= '' ;
 // 4.送出

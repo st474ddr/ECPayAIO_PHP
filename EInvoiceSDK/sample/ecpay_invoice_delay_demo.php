@@ -36,7 +36,7 @@ try
 	$ecpay_invoice->Send['CustomerEmail'] 		= 'test@localhost.com';
 	$ecpay_invoice->Send['ClearanceMark'] 		= '';
 	$ecpay_invoice->Send['Print'] 			= '0';
-	$ecpay_invoice->Send['Donation'] 		= '2';
+	$ecpay_invoice->Send['Donation'] 		= '0';
 	$ecpay_invoice->Send['LoveCode'] 		= '';
 	$ecpay_invoice->Send['CarruerType'] 		= '';
 	$ecpay_invoice->Send['CarruerNum'] 		= '';
