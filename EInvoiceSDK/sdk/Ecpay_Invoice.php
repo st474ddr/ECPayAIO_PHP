@@ -1,9 +1,6 @@
 <?php
 /*
 電子發票SDK
-版本:V1.0.180302
-*修正itemprice允許金額為0
-*修正itemamount允許金額為0
 @author Wesley
 */
 
@@ -145,14 +142,8 @@ abstract class EcpayDelayFlagType
 // 交易類別
 abstract class EcpayPayTypeCategory
 {
-	// ECBANK
-	const Ecbank = '1';
-  
 	// ECPAY
 	const Ecpay = '2';
-	
-	// ALLPAY
-	const Allpay = '3';
 }
 
 // 通知類別 
@@ -639,22 +630,14 @@ class ECPay_INVOICE
         		array_push($arErrors, '4:RelateNumber max langth as 30.');
         	}
 
-        	// 5.客戶代號 CustomerID
+        	// 5.客戶編號 CustomerID
 	        	
-        	// *載具類別為1 則客戶代號需有值
-		if($arParameters['CarruerType'] == 1)
-		{
-			if(strlen($arParameters['CustomerID']) == 0 )
-	        	{
-	        		array_push($arErrors, '5:CustomerID is required.');
-	        	}
-		}
 		// *預設最大長度為20碼
 		if(strlen($arParameters['CustomerID']) > 20 )
         	{
         		array_push($arErrors, '5:CustomerID max langth as 20.');
         	}
-        	// *比對客戶代號 只接受英、數字與下底線格式
+        	// *比對客戶編號 只接受英、數字與下底線格式
         	if(strlen($arParameters['CustomerID']) > 0)
         	{
         		if( !preg_match('/^[a-zA-Z0-9_]+$/', $arParameters['CustomerID']) )
@@ -808,7 +791,7 @@ class ECPay_INVOICE
 		
 		// 13.捐贈註記 Donation
 		
-		// *固定給定下述預設值若為捐贈時，則VAL = '1'，若為不捐贈時，則VAL = '2'
+		// *固定給定下述預設值若為捐贈時，則VAL = '1'，若為不捐贈時，則VAL = '0'
 		if ( ($arParameters['Donation'] != EcpayDonation::Yes ) && ( $arParameters['Donation'] != EcpayDonation::No ) )
 		{
 			array_push($arErrors, "13:Invalid Donation.");
@@ -1214,22 +1197,14 @@ class ECPay_INVOICE_DELAY
         		array_push($arErrors, '4:RelateNumber max langth as 30.');
         	}
 
-        	// 5.客戶代號 CustomerID
+        	// 5.客戶編號 CustomerID
 	        	
-        	// *載具類別為1 則客戶代號需有值
-		if($arParameters['CarruerType'] == 1)
-		{
-			if(strlen($arParameters['CustomerID']) == 0 )
-	        	{
-	        		array_push($arErrors, '5:CustomerID is required.');
-	        	}
-		}
 		// *預設最大長度為20碼
 		if(strlen($arParameters['CustomerID']) > 20 )
         	{
         		array_push($arErrors, '5:CustomerID max langth as 20.');
         	}
-        	// *比對客戶代號 只接受英、數字與下底線格式
+        	// *比對客戶編號 只接受英、數字與下底線格式
         	if(strlen($arParameters['CustomerID']) > 0)
         	{
         		if( !preg_match('/^[a-zA-Z0-9_]+$/', $arParameters['CustomerID']) )
@@ -1371,12 +1346,12 @@ class ECPay_INVOICE_DELAY
 		
 		// 13.捐贈註記 Donation
 		
-		// *固定給定下述預設值若為捐贈時，則VAL = '1'，若為不捐贈時，則VAL = '2'
+		// *固定給定下述預設值若為捐贈時，則VAL = '1'，若為不捐贈時，則VAL = '0'
 		if ( ($arParameters['Donation'] != EcpayDonation::Yes ) && ( $arParameters['Donation'] != EcpayDonation::No ) )
 		{
 			array_push($arErrors, "13:Invalid Donation.");
 		}
-		// *若統一編號有值時，則VAL = '2' (不捐贈)
+		// *若統一編號有值時，則VAL = '0' (不捐贈)
 		if (strlen($arParameters['CustomerIdentifier']) > 0 && $arParameters['Donation'] == EcpayDonation::Yes )
 		{
 			array_push($arErrors, "13:CustomerIdentifier Donation should be No.");
@@ -1513,7 +1488,7 @@ class ECPay_INVOICE_DELAY
 				}
 				
 				$bFind_Tag = strpos($value['ItemPrice'], '|') ;
-				if($bFind_Tag != false || empty($value['ItemPrice']))
+				if($bFind_Tag != false || $value['ItemPrice'] === '')
 				{
 					$bError_Tag = true ;
 					array_push($arErrors, '23:Invalid ItemPrice.');
@@ -1529,7 +1504,7 @@ class ECPay_INVOICE_DELAY
 				}
 				
 				$bFind_Tag = strpos($value['ItemAmount'], '|') ;
-				if($bFind_Tag != false || empty($value['ItemAmount']))
+				if($bFind_Tag != false || $value['ItemAmount'] === '' )
 				{
 					$bError_Tag = true ;
 					array_push($arErrors, '25:Invalid ItemAmount.');
