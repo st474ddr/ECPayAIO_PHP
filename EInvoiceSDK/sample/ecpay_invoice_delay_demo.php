@@ -21,9 +21,9 @@ try
 	$aItems	= array();
 	
 	// 商品資訊
-	array_push($ecpay_invoice->Send['Items'], array('ItemName' => '商品名稱一', 'ItemCount' => 1, 'ItemWord' => '批', 'ItemPrice' => 0, 'ItemTaxType' => 1, 'ItemAmount' => 0, 'ItemRemark' => '商品備註一'  )) ;
-	array_push($ecpay_invoice->Send['Items'], array('ItemName' => '商品名稱二', 'ItemCount' => 1, 'ItemWord' => '批', 'ItemPrice' => 150, 'ItemTaxType' => 1, 'ItemAmount' => 150, 'ItemRemark' => '商品備註二' )) ;
-	array_push($ecpay_invoice->Send['Items'], array('ItemName' => '商品名稱二', 'ItemCount' => 1, 'ItemWord' => '批', 'ItemPrice' => 250, 'ItemTaxType' => 1, 'ItemAmount' => 250, 'ItemRemark' => '商品備註三' )) ;
+	array_push($ecpay_invoice->Send['Items'], array('ItemName' => '商品名稱一', 'ItemCount' => 1, 'ItemWord' => '批', 'ItemPrice' => 100, 'ItemTaxType' => 1, 'ItemAmount' => 100 ));
+	array_push($ecpay_invoice->Send['Items'], array('ItemName' => '商品名稱二', 'ItemCount' => 2, 'ItemWord' => '件', 'ItemPrice' => 200, 'ItemTaxType' => 1, 'ItemAmount' => 400 ));
+	
 	// 產生測試用自訂訂單編號
 	$RelateNumber = 'ECPAY'. date('YmdHis') . rand(1000000000,2147483647);
 	
@@ -41,14 +41,14 @@ try
 	$ecpay_invoice->Send['CarruerType'] 		= '';
 	$ecpay_invoice->Send['CarruerNum'] 		= '';
 	$ecpay_invoice->Send['TaxType'] 		= '1';
-	$ecpay_invoice->Send['SalesAmount'] 		= '400';
+	$ecpay_invoice->Send['SalesAmount'] 		= '500';
 	$ecpay_invoice->Send['InvoiceRemark'] 		= 'SDK TEST';	
 	$ecpay_invoice->Send['InvType'] 		= '07';
 	$ecpay_invoice->Send['DelayFlag'] 		= '1';
 	$ecpay_invoice->Send['DelayDay'] 		= '1';
 	$ecpay_invoice->Send['ECBankID'] 		= '';
 	$ecpay_invoice->Send['Tsr'] 			= $RelateNumber;
-	$ecpay_invoice->Send['PayType'] 		= '2';
+	$ecpay_invoice->Send['PayType'] 		= '3';
 	$ecpay_invoice->Send['PayAct'] 		= 'ALLPAY';
 	$ecpay_invoice->Send['NotifyURL'] 		= '';
 

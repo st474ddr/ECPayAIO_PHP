@@ -791,7 +791,7 @@ class ECPay_INVOICE
 		
 		// 13.捐贈註記 Donation
 		
-		// *固定給定下述預設值若為捐贈時，則VAL = '1'，若為不捐贈時，則VAL = '0'
+		// *固定給定下述預設值若為捐贈時，則VAL = '1'，若為不捐贈時，則VAL = '2'
 		if ( ($arParameters['Donation'] != EcpayDonation::Yes ) && ( $arParameters['Donation'] != EcpayDonation::No ) )
 		{
 			array_push($arErrors, "13:Invalid Donation.");
@@ -1346,12 +1346,12 @@ class ECPay_INVOICE_DELAY
 		
 		// 13.捐贈註記 Donation
 		
-		// *固定給定下述預設值若為捐贈時，則VAL = '1'，若為不捐贈時，則VAL = '0'
+		// *固定給定下述預設值若為捐贈時，則VAL = '1'，若為不捐贈時，則VAL = '2'
 		if ( ($arParameters['Donation'] != EcpayDonation::Yes ) && ( $arParameters['Donation'] != EcpayDonation::No ) )
 		{
 			array_push($arErrors, "13:Invalid Donation.");
 		}
-		// *若統一編號有值時，則VAL = '0' (不捐贈)
+		// *若統一編號有值時，則VAL = '2' (不捐贈)
 		if (strlen($arParameters['CustomerIdentifier']) > 0 && $arParameters['Donation'] == EcpayDonation::Yes )
 		{
 			array_push($arErrors, "13:CustomerIdentifier Donation should be No.");
@@ -1488,7 +1488,7 @@ class ECPay_INVOICE_DELAY
 				}
 				
 				$bFind_Tag = strpos($value['ItemPrice'], '|') ;
-				if($bFind_Tag != false || $value['ItemPrice'] === '')
+				if($bFind_Tag != false || empty($value['ItemPrice']))
 				{
 					$bError_Tag = true ;
 					array_push($arErrors, '23:Invalid ItemPrice.');
@@ -1504,7 +1504,7 @@ class ECPay_INVOICE_DELAY
 				}
 				
 				$bFind_Tag = strpos($value['ItemAmount'], '|') ;
-				if($bFind_Tag != false || $value['ItemAmount'] === '' )
+				if($bFind_Tag != false || empty($value['ItemAmount']))
 				{
 					$bError_Tag = true ;
 					array_push($arErrors, '25:Invalid ItemAmount.');
