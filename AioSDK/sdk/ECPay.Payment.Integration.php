@@ -968,7 +968,6 @@ class ECPay_FundingReconDetail extends ECPay_Aio
     }
 }
 
-// v1.0.1128 wesley
 class ECPay_CreateTrade extends ECPay_Aio
 {
     //付款方式物件
@@ -1233,10 +1232,6 @@ Abstract class ECPay_Verification
         // 客戶代號CustomerID(預設為空字串)
         if(!array_key_exists('CustomerID', $arExtend)) {
             $arExtend['CustomerID'] = '';
-        }else{
-            if($arExtend['CarruerType'] == ECPay_CarruerType::Member && strlen($arExtend['CustomerID']) == 0 ){
-                array_push($arErrors, "CustomerID is required.");
-            }
         }
         // 捐贈註記 Donation(預設為No)
         if(!array_key_exists('Donation', $arExtend)){
