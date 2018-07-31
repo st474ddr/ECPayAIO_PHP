@@ -40,7 +40,7 @@
             'Distance' => Distance::SAME,
             'Specification' => Specification::CM_150,
             'ScheduledDeliveryTime' => ScheduledDeliveryTime::TIME_17_20,
-			'ScheduledDeliveryDate' => date('Y/m/d', strtotime('+3 day'))
+            'ScheduledDeliveryDate' => date('Y/m/d', strtotime('+3 day'))
         );
         // BGCreateShippingOrder()
         $Result = $AL->BGCreateShippingOrder();
