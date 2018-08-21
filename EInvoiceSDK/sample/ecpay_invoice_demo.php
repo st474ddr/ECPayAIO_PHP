@@ -17,7 +17,7 @@ try
 	$aItems	= array();
 	// 商品資訊
 	array_push($ecpay_invoice->Send['Items'], array('ItemName' => '商品名稱一', 'ItemCount' => 1, 'ItemWord' => '批', 'ItemPrice' => 0, 'ItemTaxType' => 1, 'ItemAmount' => 0, 'ItemRemark' => '商品備註一'  )) ;
-	array_push($ecpay_invoice->Send['Items'], array('ItemName' => '商品名稱二', 'ItemCount' => 1, 'ItemWord' => '批', 'ItemPrice' => 150, 'ItemTaxType' => 1, 'ItemAmount' => 150, 'ItemRemark' => '商品備註二' )) ;
+	array_push($ecpay_invoice->Send['Items'], array('ItemName' => '商品名稱二', 'ItemCount' => 1, 'ItemWord' => '批', 'ItemPrice' => 150.8, 'ItemTaxType' => 1, 'ItemAmount' => 150.8, 'ItemRemark' => '商品備註二' )) ;
 	array_push($ecpay_invoice->Send['Items'], array('ItemName' => '商品名稱二', 'ItemCount' => 1, 'ItemWord' => '批', 'ItemPrice' => 250, 'ItemTaxType' => 1, 'ItemAmount' => 250, 'ItemRemark' => '商品備註三' )) ;
 	
 	$RelateNumber = 'ECPAY'. date('YmdHis') . rand(1000000000,2147483647) ; // 產生測試用自訂訂單編號
@@ -35,7 +35,7 @@ try
 	$ecpay_invoice->Send['CarruerType'] 			= '' ;
 	$ecpay_invoice->Send['CarruerNum'] 			= '' ;
 	$ecpay_invoice->Send['TaxType'] 			= 1 ;
-	$ecpay_invoice->Send['SalesAmount'] 			= 400 ;
+	$ecpay_invoice->Send['SalesAmount'] 			= 401 ;
 	$ecpay_invoice->Send['InvoiceRemark'] 			= 'SDK TEST PHP V1.0.180302' ;	
 	$ecpay_invoice->Send['InvType'] 			= '07' ;
 	$ecpay_invoice->Send['vat'] 				= '' ;

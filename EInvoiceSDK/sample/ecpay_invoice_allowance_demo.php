@@ -21,7 +21,7 @@ try
 	$aItems	= array();
 	
 	// 商品資訊
-	array_push($ecpay_invoice->Send['Items'], array('ItemName' => '商品名稱一', 'ItemCount' => 1, 'ItemWord' => '批', 'ItemPrice' => 100, 'ItemTaxType' => 1, 'ItemAmount' => 100 ));
+	array_push($ecpay_invoice->Send['Items'], array('ItemName' => '商品名稱一', 'ItemCount' => 1, 'ItemWord' => '批', 'ItemPrice' => 100.88, 'ItemTaxType' => 1, 'ItemAmount' => 100.88 ));
 	
 	// 產生測試用自訂訂單編號
 	$RelateNumber = 'ECPAY'. date('YmdHis') . rand(1000000000,2147483647);
@@ -31,7 +31,7 @@ try
 	$ecpay_invoice->Send['AllowanceNotify'] 	= 'E';
 	$ecpay_invoice->Send['NotifyMail'] 		= 'test@localhost.com';
 	$ecpay_invoice->Send['NotifyPhone'] 		= '';
-	$ecpay_invoice->Send['AllowanceAmount'] 	= 100;
+	$ecpay_invoice->Send['AllowanceAmount'] 	= 101;
 	
 	// 3.送出
 	$aReturn_Info = $ecpay_invoice->Check_Out();
