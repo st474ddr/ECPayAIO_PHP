@@ -28,7 +28,6 @@
             'LogisticsC2CReplyURL' => HOME_URL . '/LogisticsC2CReplyURL.php',
             'Remark' => '測試備註',
             'PlatformID' => '',
-			
         );
 
         $AL->SendExtend = array(
@@ -40,7 +39,7 @@
             'Distance' => Distance::SAME,
             'Specification' => Specification::CM_150,
             'ScheduledDeliveryTime' => ScheduledDeliveryTime::TIME_17_20,
-            'ScheduledDeliveryDate' => date('Y/m/d', strtotime('+3 day'))
+            'ScheduledDeliveryDate' => date('Y/m/d', strtotime('+3 day')) // ECAN only
         );
         // BGCreateShippingOrder()
         $Result = $AL->BGCreateShippingOrder();
