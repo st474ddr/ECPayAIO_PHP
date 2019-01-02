@@ -9,9 +9,9 @@
         $AL->MerchantID = '2000132';
         $AL->HashKey = '5294y06JbISpM5x9';
         $AL->HashIV = 'v77hoKGq4kWxNNIS';
-        // $AL->encryptType = ECPay_EncryptType::ENC_MD5; // MD5
+        // $AL->EncryptType = ECPay_EncryptType::ENC_MD5;  // MD5
         $AL->EncryptType = ECPay_EncryptType::ENC_SHA256; // SHA256
-        $AL->CheckOutFeedback();
+        $feedback = $AL->CheckOutFeedback();
 
         // 以付款結果訊息進行相對應的處理
         /** 

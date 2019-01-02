@@ -1181,9 +1181,13 @@ Abstract class ECPay_Verification
         if(!array_key_exists('CustomerIdentifier', $arExtend)){
             $arExtend['CustomerIdentifier'] = '';
         }else{
-            //統編長度只能為8
-            if(strlen($arExtend['CustomerIdentifier']) != 8){
-                array_push($arErrors, "CustomerIdentifier length should be 8.");
+            
+            if( strlen( $arExtend['CustomerIdentifier'] ) > 0  )
+            {                   
+                if( !preg_match('/^[0-9]{8}$/', $arParameters['CustomerIdentifier']) ) 
+                {   
+                    array_push($arErrors, '6:CustomerIdentifier length should be 8.');
+                }
             }
         }
 
