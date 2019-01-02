@@ -3,7 +3,7 @@
  * ECPay 物流 SDK 
  *
  * @author		https://www.ecpay.com.tw
- * @version		1.0.181001
+ * @version		1.0.181221
  */
 
 /**
@@ -11,7 +11,6 @@
  *
  * @author		https://www.ecpay.com.tw
  * @category	Options
- * @version		1.0.1012
  */
 abstract class LogisticsType {
 	const CVS = 'CVS';// 超商取貨
@@ -23,7 +22,6 @@ abstract class LogisticsType {
  *
  * @author		https://www.ecpay.com.tw
  * @category	Options
- * @version		1.0.1012
  */
 abstract class LogisticsSubType {
 	const TCAT = 'TCAT';// 黑貓(宅配)
@@ -41,7 +39,6 @@ abstract class LogisticsSubType {
  *
  * @author		https://www.ecpay.com.tw
  * @category	Options
- * @version		1.0.1012
  */
 abstract class IsCollection {
 	const YES = 'Y';// 貨到付款
@@ -53,7 +50,6 @@ abstract class IsCollection {
  *
  * @author		https://www.ecpay.com.tw
  * @category	Options
- * @version		1.0.1012
  */
 abstract class Device {
 	const PC = 0;// PC
@@ -65,7 +61,6 @@ abstract class Device {
  *
  * @author		https://www.ecpay.com.tw
  * @category	Options
- * @version		1.0.1012
  */
 abstract class ECPayTestMerchantID {
 	const B2C = '2000132';// B2C
@@ -77,7 +72,6 @@ abstract class ECPayTestMerchantID {
  *
  * @author		https://www.ecpay.com.tw
  * @category	Options
- * @version		1.0.1012
  */
 abstract class ECPayURL {
 	const CVS_MAP = 'https://logistics.ecpay.com.tw/Express/map';// 電子地圖
@@ -103,7 +97,6 @@ abstract class ECPayURL {
  *
  * @author		https://www.ecpay.com.tw
  * @category	Options
- * @version		1.0.1012
  */
 abstract class ECPayTestURL {
 const CVS_MAP = 'https://logistics-stage.ecpay.com.tw/Express/map';// 電子地圖
@@ -129,7 +122,6 @@ const CVS_MAP = 'https://logistics-stage.ecpay.com.tw/Express/map';// 電子地�
  *
  * @author		https://www.ecpay.com.tw
  * @category	Options
- * @version		1.0.1012
  */
 abstract class Temperature {
 	const ROOM = '0001';// 常溫
@@ -142,7 +134,6 @@ abstract class Temperature {
  *
  * @author		https://www.ecpay.com.tw
  * @category	Options
- * @version		1.0.1012
  */
 abstract class Distance {
 	const SAME = '00';// 同縣市
@@ -155,7 +146,6 @@ abstract class Distance {
  *
  * @author		https://www.ecpay.com.tw
  * @category	Options
- * @version		1.0.1012
  */
 abstract class Specification {
 	const CM_60 = '0001';// 60cm
@@ -169,7 +159,6 @@ abstract class Specification {
  *
  * @author		https://www.ecpay.com.tw
  * @category	Options
- * @version		1.0.1012
  */
 abstract class ScheduledPickupTime {
 	const TIME_9_12 = '1';// 9~12時
@@ -183,7 +172,6 @@ abstract class ScheduledPickupTime {
  *
  * @author		https://www.ecpay.com.tw
  * @category	Options
- * @version		1.0.1012
  */
 abstract class ScheduledDeliveryTime {
 	const TIME_9_12 = '1';// 9~12時
@@ -201,7 +189,6 @@ abstract class ScheduledDeliveryTime {
  *
  * @author		https://www.ecpay.com.tw
  * @category	Options
- * @version		1.0.1012
  */
 abstract class StoreType {
 	const RECIVE_STORE = '01';// 取件門市
@@ -215,7 +202,6 @@ abstract class StoreType {
  *
  * @author		https://www.ecpay.com.tw
  * @category	Options
- * @version		1.0.1012
  */
 class ECPayLogistics {
 	public $ServiceURL = '';
@@ -236,7 +222,6 @@ class ECPayLogistics {
 	 * @param		String $ButtonDesc 按鈕顯示名稱
 	 * @param		String $Target 表單 action 目標
 	 * @return		String
-	 * @version		1.0.1012
 	 */
 	public function CvsMap($ButtonDesc = '電子地圖', $Target = '_self') {
 		// 參數初始化
@@ -272,7 +257,6 @@ class ECPayLogistics {
 	 * @param		String $ButtonDesc 按鈕顯示名稱
 	 * @param		String $Target 表單 action 目標
 	 * @return		String
-	 * @version		1.0.1012
 	 */
 	public function CreateShippingOrder($ButtonDesc = '物流訂單建立', $Target = '_self') {
 		// 參數初始化
@@ -457,7 +441,6 @@ class ECPayLogistics {
 	 * @author		https://www.ecpay.com.tw
 	 * @category	SDK
 	 * @return		Array
-	 * @version		1.0.1012
 	 */
 	public function BGCreateShippingOrder() {
 		// 參數初始化
@@ -665,7 +648,6 @@ class ECPayLogistics {
 	 * @author		https://www.ecpay.com.tw
 	 * @category	SDK
 	 * @param		Array $Feedback ECPay 回傳資料
-	 * @version		1.0.1012
 	 */
 	public function CheckOutFeedback($Feedback = array()) {
 		
@@ -696,7 +678,6 @@ class ECPayLogistics {
 	 * @author		https://www.ecpay.com.tw
 	 * @category	SDK
 	 * @return		Array
-	 * @version		1.0.1012
 	 */
 	public function CreateHomeReturnOrder() {
 		
@@ -835,7 +816,6 @@ class ECPayLogistics {
 	 * @author		https://www.ecpay.com.tw
 	 * @category	SDK
 	 * @return		Array
-	 * @version		1.0.1012
 	 */
 	public function CreateUnimartB2CReturnOrder() {
 		
@@ -903,7 +883,6 @@ class ECPayLogistics {
 	 * @author		https://www.ecpay.com.tw
 	 * @category	SDK
 	 * @return		Array
-	 * @version		1.0.1012
 	 */
 	public function CreateHiLifeB2CReturnOrder() {
 		
@@ -968,7 +947,6 @@ class ECPayLogistics {
 	 * @author		https://www.ecpay.com.tw
 	 * @category	SDK
 	 * @return		Array
-	 * @version		1.0.1012
 	 */
 	public function CreateFamilyB2CReturnOrder() {
 		
@@ -1060,7 +1038,6 @@ class ECPayLogistics {
 	 * @author		https://www.ecpay.com.tw
 	 * @category	SDK
 	 * @return		Array
-	 * @version		1.0.1012
 	 */
 	public function CheckFamilyB2CLogistics() {
 		
@@ -1098,7 +1075,6 @@ class ECPayLogistics {
 	 * @author		https://www.ecpay.com.tw
 	 * @category	SDK
 	 * @return		Array
-	 * @version		1.0.1012
 	 */
 	public function UpdateUnimartLogisticsInfo() {
 		
@@ -1145,7 +1121,6 @@ class ECPayLogistics {
 	 * @author		https://www.ecpay.com.tw
 	 * @category	SDK
 	 * @return		Array
-	 * @version		1.0.1012
 	 */
 	public function UpdateUnimartStore() {
 		
@@ -1204,7 +1179,6 @@ class ECPayLogistics {
 	 * @author		https://www.ecpay.com.tw
 	 * @category	SDK
 	 * @return		Array
-	 * @version		1.0.1012
 	 */
 	public function CancelUnimartLogisticsOrder() {
 		
@@ -1246,7 +1220,6 @@ class ECPayLogistics {
 	 * @author		https://www.ecpay.com.tw
 	 * @category	SDK
 	 * @return		Array
-	 * @version		1.0.1012
 	 */
 	public function QueryLogisticsInfo() {
 		
@@ -1287,7 +1260,6 @@ class ECPayLogistics {
 	 * @param		String $ButtonDesc 按鈕顯示名稱
 	 * @param		String $Target 表單 action 目標
 	 * @return		String
-	 * @version		1.0.1012
 	 */
 	public function PrintTradeDoc($ButtonDesc = '產生托運單/一段標', $Target = '_blank') {
 		
@@ -1320,7 +1292,6 @@ class ECPayLogistics {
 	 * @param		String $ButtonDesc 按鈕顯示名稱
 	 * @param		String $Target 表單 action 目標
 	 * @return		String
-	 * @version		1.0.1012
 	 */
 	public function PrintUnimartC2CBill($ButtonDesc = '列印繳款單(統一超商C2C)', $Target = '_blank') {
 		
@@ -1358,7 +1329,6 @@ class ECPayLogistics {
 	 * @param		String $ButtonDesc 按鈕顯示名稱
 	 * @param		String $Target 表單 action 目標
 	 * @return		String
-	 * @version		1.0.1012
 	 */
 	public function PrintFamilyC2CBill($ButtonDesc = '全家列印小白單(全家超商C2C)', $Target = '_blank') {
 		
@@ -1394,7 +1364,6 @@ class ECPayLogistics {
 	 * @param		String $ButtonDesc 按鈕顯示名稱
 	 * @param		String $Target 表單 action 目標
 	 * @return		String
-	 * @version		1.0.1012
 	 */
 	public function PrintHiLifeC2CBill($ButtonDesc = '萊爾富列印小白單(萊爾富超商C2C)', $Target = '_blank') {
 		
@@ -1430,7 +1399,6 @@ class ECPayLogistics {
 	 * @param		String $ButtonDesc 按鈕顯示名稱
 	 * @param		String $Target 表單 action 目標
 	 * @return		String
-	 * @version		1.0.1012
 	 */
 	public function CreateTestData($ButtonDesc = '產生 B2C 測標資料', $Target = '_blank') {
 		
@@ -1462,7 +1430,6 @@ class ECPayLogistics {
 	 *
 	 * @author		https://www.ecpay.com.tw
 	 * @category		Validate
-	 * @version		1.0.1012
 	 */
 	private function ValidateHashKey(){
 		$Name = 'HashKey'; // 參數名稱
@@ -1480,7 +1447,6 @@ class ECPayLogistics {
 	 *
 	 * @author		https://www.ecpay.com.tw
 	 * @category		Validate
-	 * @version		1.0.1012
 	 */
 	private function ValidateHashIV(){
 		$Name = 'HashIV'; // 參數名稱
@@ -1502,7 +1468,6 @@ class ECPayLogistics {
 	 * @param		String	$Value		參數內容
 	 * @param		Integer	$MaxLength	參數最大長度
 	 * @param		Boolean	$AllowEmpty	是否允許空值
-	 * @version		1.0.1012
 	 */
 	private function ValidateID($Name, $Value, $MaxLength = 1, $AllowEmpty = false) {
 		if (empty($Value)) {
@@ -1523,7 +1488,6 @@ class ECPayLogistics {
 	 * @param		String	$Value		參數內容
 	 * @param		Integer	$MaxLength	參數最大長度
 	 * @param		Boolean	$AllowEmpty	是否允許空值
-	 * @version		1.0.1012
 	 */
 	private function ValidateURL($Name, $Value, $MaxLength = 200, $AllowEmpty = false) {
 		if (empty($Value)) {
@@ -1547,7 +1511,6 @@ class ECPayLogistics {
 	 * @param		String	$Value		參數內容
 	 * @param		Integer	$MaxLength	參數最大長度
 	 * @param		Boolean	$AllowEmpty	是否允許空值
-	 * @version		1.0.1012
 	 */
 	private function ValidateString($Name, $Value, $MaxLength = 1, $AllowEmpty = false) {
 		if (empty($Value)) {
@@ -1568,7 +1531,6 @@ class ECPayLogistics {
 	 * @param		String	$Value		參數內容
 	 * @param		Integer	$MaxLength	參數最大長度
 	 * @param		Boolean	$AllowEmpty	是否允許空值
-	 * @version		1.0.1012
 	 */
 	private function ValidateAmount($Name, $Value, $AllowEmpty = false) {
 		if (empty($Value)) {
@@ -1591,7 +1553,6 @@ class ECPayLogistics {
 	 * @param		String	$Name		參數名稱
 	 * @param		String	$Value		參數內容
 	 * @param		Boolean	$AllowEmpty	是否允許空值
-	 * @version		1.0.1012
 	 */
 	private function ValidatePhoneNumber($Name, $Value, $AllowEmpty = false) {
 		if (empty($Value)) {
@@ -1611,7 +1572,6 @@ class ECPayLogistics {
 	 * @param		String	$Name		參數名稱
 	 * @param		String	$Value		參數內容
 	 * @param		Boolean	$AllowEmpty	是否允許空值
-	 * @version		1.0.1012
 	 */
 	private function ValidateCellphoneNumber($Name, $Value, $AllowEmpty = false) {
 		if (empty($Value)) {
@@ -1632,7 +1592,6 @@ class ECPayLogistics {
 	 * @param		String	$Value		參數內容
 	 * @param		Integer	$MaxLength	參數最大長度
 	 * @param		Boolean	$AllowEmpty	是否允許空值
-	 * @version		1.0.1012
 	 */
 	private function ValidateEmail($Name, $Value, $MaxLength = 100, $AllowEmpty = false) {
 		if (empty($Value)) {
@@ -1657,7 +1616,6 @@ class ECPayLogistics {
 	 * @param		String	$Name		參數名稱
 	 * @param		String	$Value		參數內容
 	 * @param		Boolean	$AllowEmpty	是否允許空值
-	 * @version		1.0.1012
 	 */
 	private function ValidateZipCode($Name, $Value, $AllowEmpty = false) {
 		if (empty($Value)) {
@@ -1679,7 +1637,6 @@ class ECPayLogistics {
 	 * @param		Integer	$MinLength	參數最小限制長度
 	 * @param		Integer	$MaxLength	參數最大限制長度
 	 * @param		Boolean	$AllowEmpty	是否允許空值
-	 * @version		1.0.1012
 	 */
 	private function ValidateAddress($Name, $Value, $MinLength = 1, $MaxLength = 1, $AllowEmpty = false) {
 		if (empty($Value)) {
@@ -1708,7 +1665,6 @@ class ECPayLogistics {
 	 * @param		String	$Name		參數名稱
 	 * @param		String	$Value		參數內容
 	 * @param		Boolean	$AllowEmpty	是否允許空值
-	 * @version		1.0.1012
 	 */
 	private function ValidateMixTypeID($Name, $Value, $MaxLength = 1, $AllowEmpty = false) {
 		if (empty($Value)) {
@@ -1727,7 +1683,6 @@ class ECPayLogistics {
 	 *
 	 * @author		https://www.ecpay.com.tw
 	 * @category		Validate
-	 * @version		1.0.1012
 	 */
 	private function ValidateStoreType() {
 		$Name = 'StoreType'; // 參數名稱
@@ -1749,7 +1704,6 @@ class ECPayLogistics {
 	 *
 	 * @author		https://www.ecpay.com.tw
 	 * @category		Validate
-	 * @version		1.0.1012
 	 */
 	private function ValidateMerchantTradeNo() {
 		$Name = 'MerchantTradeNo'; // 參數名稱
@@ -1770,7 +1724,6 @@ class ECPayLogistics {
 	 *
 	 * @author		https://www.ecpay.com.tw
 	 * @category		Validate
-	 * @version		1.0.1012
 	 */
 	private function ValidateLogisticsType() {
 		$Name = 'LogisticsType'; // 參數名稱
@@ -1793,7 +1746,6 @@ class ECPayLogistics {
 	 * @author		https://www.ecpay.com.tw
 	 * @category		Validate
 	 * @param		Boolean	$AllowEmpty	是否允許空值
-	 * @version		1.0.1012
 	 */
 	private function ValidateLogisticsSubType($AllowEmpty = false) {
 		$Name = 'LogisticsSubType'; // 參數名稱
@@ -1842,7 +1794,6 @@ class ECPayLogistics {
 	 * @author		https://www.ecpay.com.tw
 	 * @category		Validate
 	 * @param		Boolean	$AllowEmpty	是否允許空值
-	 * @version		1.0.1012
 	 */
 	private function ValidateIsCollection($AllowEmpty = false) {
 		$Name = 'IsCollection'; // 參數名稱
@@ -1869,7 +1820,6 @@ class ECPayLogistics {
 	 * @author		https://www.ecpay.com.tw
 	 * @category		Validate
 	 * @param		Boolean	$AllowEmpty	是否允許空值
-	 * @version		1.0.1012
 	 */
 	private function ValidateDevice($AllowEmpty = false) {
 		$Name = 'Device'; // 參數名稱
@@ -1893,7 +1843,6 @@ class ECPayLogistics {
 	 *
 	 * @author		https://www.ecpay.com.tw
 	 * @category		Validate
-	 * @version		1.0.1012
 	 */
 	private function ValidateMerchantTradeDate() {
 		$Name = 'MerchantTradeDate'; // 參數名稱
@@ -1915,7 +1864,6 @@ class ECPayLogistics {
 	 *
 	 * @author		https://www.ecpay.com.tw
 	 * @category		Validate
-	 * @version		1.0.1012
 	 */
 	private function ValidateTemperature() {
 		$Name = 'Temperature'; // 參數名稱
@@ -1938,7 +1886,6 @@ class ECPayLogistics {
 	 *
 	 * @author		https://www.ecpay.com.tw
 	 * @category		Validate
-	 * @version		1.0.1012
 	 */
 	private function ValidateDistance() {
 		$Name = 'Distance'; // 參數名稱
@@ -1960,7 +1907,6 @@ class ECPayLogistics {
 	 *
 	 * @author		https://www.ecpay.com.tw
 	 * @category		Validate
-	 * @version		1.0.1012
 	 */
 	private function ValidateSpecification() {
 		$Name = 'Specification'; // 參數名稱
@@ -1983,7 +1929,6 @@ class ECPayLogistics {
 	 * @author		https://www.ecpay.com.tw
 	 * @category		Validate
 	 * @param		Boolean	$AllowEmpty	是否允許空值
-	 * @version		1.0.1012
 	 */
 	private function ValidateScheduledDeliveryTime($AllowEmpty = false) {
 		$Name = 'ScheduledDeliveryTime'; // 參數名稱
@@ -2005,7 +1950,6 @@ class ECPayLogistics {
 	 * @author		https://www.ecpay.com.tw
 	 * @category		Validate
 	 * @param		Boolean	$AllowEmpty	是否允許空值
-	 * @version		1.0.1012
 	 */
 	private function ValidateShipmentDate($AllowEmpty = false) {
 		$Name = 'ShipmentDate'; // 參數名稱
@@ -2029,7 +1973,6 @@ class ECPayLogistics {
 	 * @param		String	$Name		參數名稱
 	 * @param		String	$Value		參數內容
 	 * @param		Boolean	$AllowEmpty	是否允許空值
-	 * @version		1.0.181001
 	 */
 	private function ValidateGoodsName($Name, $Value, $AllowEmpty = false) {
 	
@@ -2050,7 +1993,6 @@ class ECPayLogistics {
 	 * @param		String	$Name		參數名稱
 	 * @param		String	$Value		參數內容
 	 * @param		Boolean	$AllowEmpty	是否允許空值
-	 * @version		1.0.181001
 	 */
 	private function ValidateSenderName($Name, $Value, $AllowEmpty = false) {
 
@@ -2059,7 +2001,7 @@ class ECPayLogistics {
 			$this->IsAllowEmpty($Name, $AllowEmpty);
 		} else {
 			// 格式檢查
-			$this->IsValidFormat($Name, '/[\^\'`\!＠#%&\*\+\\\"<>\|_\[\]\.,]+/', $Value, true);
+			$this->IsValidFormat($Name, '/[\^\'`\!＠#%&\*\+\\\"<>\|_\[\]\.,\x{ff0c}]+/u', $Value, true);
 		}
 	}
 
@@ -2071,7 +2013,6 @@ class ECPayLogistics {
 	 * @param		String	$Name		參數名稱
 	 * @param		String	$Value		參數內容
 	 * @param		Boolean	$AllowEmpty	是否允許空值
-	 * @version		1.0.181001
 	 */
 	private function ValidateReceiverName($Name, $Value, $AllowEmpty = false) {
 
@@ -2080,7 +2021,7 @@ class ECPayLogistics {
 			$this->IsAllowEmpty($Name, $AllowEmpty);
 		} else {
 			// 格式檢查
-			$this->IsValidFormat($Name, '/[\^\'`\!＠#%&\*\+\\\"<>\|_\[\]]+/', $Value, true);
+			$this->IsValidFormat($Name, '/[\^\'`\!＠#%&\*\+\\\"<>\|_\[\]\.,\x{ff0c}]+/u', $Value, true);
 		}
 	}
 
@@ -2092,7 +2033,6 @@ class ECPayLogistics {
 	 * @param		String	$Name		參數名稱
 	 * @param		boolean	$AllowEmpty	是否允許空值
 	 * @return		boolean
-	 * @version		1.0.1012
 	 */
 	private function IsAllowEmpty($Name, $AllowEmpty){
 		if (!$AllowEmpty) {
@@ -2108,7 +2048,6 @@ class ECPayLogistics {
 	 * @param		String	$Name			參數名稱
 	 * @param		Integer	$Length			參數長度
 	 * @param		Integer	$MaxLength 		參數限制長度
-	 * @version		1.0.1012
 	 */
 	private function IsOverLength($Name, $Length, $MaxLength) {
 		if ($Length > $MaxLength) {
@@ -2124,7 +2063,6 @@ class ECPayLogistics {
 	 * @param		String	$Name			參數名稱
 	 * @param		Integer	$Length			參數長度
 	 * @param		Integer	$MinLength 		參數限制長度
-	 * @version		1.0.1012
 	 */
 	private function IsBelowLength($Name, $Length, $MinLength) {
 		if ($Length < $MinLength) {
@@ -2140,7 +2078,6 @@ class ECPayLogistics {
 	 * @param		String	$Name		參數名稱
 	 * @param		String	$Pattern	格式檢查用正規表示法
 	 * @param		String	$Value		參數內容
-	 * @version		1.0.1012
 	 */
 	private function IsValidFormat($Name, $Pattern, $Value, $phase = false) {
 		if (!empty($Value)) {
@@ -2165,7 +2102,6 @@ class ECPayLogistics {
 	 * @category		Validate
 	 * @param		String	$Name		參數名稱
 	 * @param		String	$Value		參數內容
-	 * @version		1.0.1012
 	 */
 	private function IsInteger($Name, $Value) {
 		if (!is_int($Value)) {
@@ -2181,7 +2117,6 @@ class ECPayLogistics {
 	 * @param		String	$Name			參數名稱
 	 * @param		String	$ClassName		合法資料 Class 名稱
 	 * @param		String	$Value			參數內容
-	 * @version		1.0.1012
 	 */
 	private function IsLegalValue($Name, $ClassName, $Value) {
 		// 取得合法資料內容
@@ -2203,7 +2138,6 @@ class ECPayLogistics {
 	 * @param		String	$Name			參數名稱
 	 * @param		String	$Format			日期格式
 	 * @param		String	$Value			參數內容
-	 * @version		1.0.1012
 	 */
 	private function IsDate($Name, $Format, $Value) {
 		if (date($Format, strtotime($Value)) != $Value){
@@ -2220,7 +2154,6 @@ class ECPayLogistics {
 	 * @param		Array	$ParamList		合法參數與預設值
 	 * @param		Array	$MergeParams	其他待合併參數
 	 * @return		Array
-	 * @version		1.0.1012
 	 */
 	private function GetPostParams($Source, $ParamList, $MergeParams = array()) {
 		// 過濾非法參數
@@ -2243,7 +2176,6 @@ class ECPayLogistics {
 	 * @category			SDK_Misc
 	 * @param		String	$FunctionType	功能名稱
 	 * @return		String
-	 * @version		1.0.1012
 	 */
 	private function GetURL($FunctionType) {
 		$MerchantID = $this->PostParams['MerchantID'];
@@ -2300,7 +2232,6 @@ class ECPayLogistics {
 	 * @category		Misc
 	 * @param		String	$Content	內容
 	 * @return		String
-	 * @version		1.0.1012
 	 */
 	private function AddNextLine($Content) {
 		return $Content . PHP_EOL;
@@ -2314,7 +2245,6 @@ class ECPayLogistics {
 	 * @param		String	$ButtonDesc	按鈕顯示名稱
 	 * @param		String	$Target		表單 action 目標
 	 * @return		String
-	 * @version		1.0.1012
 	 */
 	private function GenPostHTML($ButtonDesc = '', $Target = '_self') {
 		$PostHTML = $this->AddNextLine('<div style="text-align:center;">');
@@ -2343,7 +2273,6 @@ class ECPayLogistics {
 	 * @param		String	$RetriveString	字串內容
 	 * @param		String	$Encode 		字串編碼
 	 * @return		Integer
-	 * @version		1.0.1012
 	 */
 	private function StringLength($RetriveString, $Encode) {
 		return mb_strlen($RetriveString, $Encode);
@@ -2359,7 +2288,6 @@ class ECPayLogistics {
 	 * @param		Array	$FeedbackList	合法回傳參數
 	 * @param		String	$Separator		分隔符號
 	 * @return		Array
-	 * @version		1.0.1012
 	 */
 	private function ParseFeedback($Feedback, $FeedbackList = array('RtnCode', 'RtnMsg'), $Separator = '|') {
 		$Pieces = explode($Separator, $Feedback);
