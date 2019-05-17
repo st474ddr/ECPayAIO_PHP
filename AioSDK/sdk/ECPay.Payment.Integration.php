@@ -1200,7 +1200,7 @@ Abstract class ECPay_Verification
 
             if( strlen( $arExtend['CustomerIdentifier'] ) > 0  )
             {
-                if( !preg_match('/^[0-9]{8}$/', $arParameters['CustomerIdentifier']) )
+                if( !preg_match('/^[0-9]{8}$/', $arExtend['CustomerIdentifier']) )
                 {
                     array_push($arErrors, '6:CustomerIdentifier length should be 8.');
                 }
