@@ -10,11 +10,11 @@
             'MerchantID' => '2000132',
             'MerchantTradeNo' => 'no' . date('YmdHis'),
             'MerchantTradeDate' => date('Y/m/d H:i:s'),
-            'LogisticsType' => LogisticsType::HOME,
-            'LogisticsSubType' => LogisticsSubType::TCAT,
+            'LogisticsType' => EcpayLogisticsType::HOME,
+            'LogisticsSubType' => EcpayLogisticsSubType::TCAT,
             'GoodsAmount' => 1500,
             'CollectionAmount' => 10,
-            'IsCollection' => IsCollection::NO,
+            'IsCollection' => EcpayIsCollection::NO,
             'GoodsName' => '測試商品',
             'SenderName' => '測試寄件者',
             'SenderPhone' => '0226550115',
@@ -36,10 +36,10 @@
             'SenderAddress' => '台北市南港區三重路19-2號10樓D棟',
             'ReceiverZipCode' => '11560',
             'ReceiverAddress' => '台北市南港區三重路19-2號5樓D棟',
-            'Temperature' => Temperature::FREEZE,
-            'Distance' => Distance::SAME,
-            'Specification' => Specification::CM_120,
-            'ScheduledDeliveryTime' => ScheduledDeliveryTime::TIME_17_20
+            'Temperature' => EcpayTemperature::FREEZE,
+            'Distance' => EcpayDistance::SAME,
+            'Specification' => EcpaySpecification::CM_120,
+            'ScheduledDeliveryTime' => EcpayScheduledDeliveryTime::TIME_17_20
         );
         // CreateShippingOrder(Button名稱, Form target)
         $html = $AL->CreateShippingOrder('宅配物流訂單建立');

@@ -7,11 +7,11 @@
         $AL->Send = array(
             'MerchantID' => '2000132',
             'MerchantTradeNo' => 'no' . date('YmdHis'),
-            'LogisticsSubType' => LogisticsSubType::UNIMART,
-            'IsCollection' => IsCollection::NO,
+            'LogisticsSubType' => EcpayLogisticsSubType::UNIMART,
+            'IsCollection' => EcpayIsCollection::NO,
             'ServerReplyURL' => HOME_URL . '/ServerReplyURL.php',
             'ExtraData' => '測試額外資訊',
-            'Device' => Device::PC
+            'Device' => EcpayDevice::PC
         );
         // CvsMap(Button名稱, Form target)
         $html = $AL->CvsMap('電子地圖(統一)');

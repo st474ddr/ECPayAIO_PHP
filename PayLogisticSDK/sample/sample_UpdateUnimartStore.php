@@ -10,7 +10,7 @@
             'AllPayLogisticsID' => '11796',
             'CVSPaymentNo' => 'F0015091',
             'CVSValidationNo' => '3207',
-            'StoreType' => StoreType::RECIVE_STORE,
+            'StoreType' => EcpayStoreType::RECIVE_STORE,
             'ReceiverStoreID' => '991183',
             'PlatformID' => ''
         );

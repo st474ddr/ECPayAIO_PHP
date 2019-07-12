@@ -8,7 +8,7 @@
         $AL->Send = array(
             'MerchantID' => '2000132',
             'ClientReplyURL' => '',
-            'LogisticsSubType' => LogisticsSubType::FAMILY,
+            'LogisticsSubType' => EcpayLogisticsSubType::FAMILY,
             'PlatformID' => ''
         );
 
