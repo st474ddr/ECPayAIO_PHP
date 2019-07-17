@@ -43,7 +43,7 @@ try
         $ecpay_invoice->Send['CarruerNum']                     = '' ;
         $ecpay_invoice->Send['TaxType']                        = 1 ;
         $ecpay_invoice->Send['SalesAmount']                    = 500 ;
-        $ecpay_invoice->Send['InvoiceRemark']                  = 'SDK AUTO_TEST PHP V1.0.10828' ;
+        $ecpay_invoice->Send['InvoiceRemark']                  = 'v1.0.180712' ;
         $ecpay_invoice->Send['InvType']                        = '07' ;
         $ecpay_invoice->Send['vat']                            = '' ;
         $ecpay_invoice->Send['OnLine']                         = false ;

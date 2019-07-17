@@ -36,7 +36,7 @@ try
 	$ecpay_invoice->Send['CarruerNum'] 			= '' ;
 	$ecpay_invoice->Send['TaxType'] 			= 1 ;
 	$ecpay_invoice->Send['SalesAmount'] 			= 401 ;
-	$ecpay_invoice->Send['InvoiceRemark'] 			= 'SDK TEST PHP V1.0.180302' ;	
+	$ecpay_invoice->Send['InvoiceRemark'] 			= 'v1.0.180712' ;	
 	$ecpay_invoice->Send['InvType'] 			= '07' ;
 	$ecpay_invoice->Send['vat'] 				= '' ;
 // 4.送出
