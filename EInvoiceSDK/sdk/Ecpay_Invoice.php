@@ -224,7 +224,7 @@ class EcpayInvoice
 	/**
 	 * 版本
 	 */
-	const VERSION = '1.0.190703';
+	const VERSION = '1.0.190805';
 
 	public $TimeStamp 	= '';
 	public $MerchantID 	= '';
@@ -859,9 +859,9 @@ class ECPay_INVOICE
                           	}
 			break;
       
-      			// *載具類別為買受人手機條碼(Cellphone)時，請設定手機條碼，第1碼為「/」，後7碼為大小寫英文、數字、「+」、「-」或「.」
+      			// *載具類別為買受人手機條碼(Cellphone)時，請設定手機條碼，第1碼為「/」，後7碼為大寫英文、數字、「+」、「-」或「.」
       			case EcpayCarruerType::Cellphone:
-				if ( !preg_match('/^\/{1}[0-9a-zA-Z+-.]{7}$/', $arParameters['CarruerNum']) )
+				if ( !preg_match('/^\/{1}[0-9A-Z+-.]{7}$/', $arParameters['CarruerNum']) )
 				{
 					array_push($arErrors, "16:Invalid CarruerNum.");
 				}
@@ -1447,9 +1447,9 @@ class ECPay_INVOICE_DELAY
                           	}
 			break;
       
-      			// *載具類別為買受人手機條碼(Cellphone)時，請設定手機條碼，第1碼為「/」，後7碼為大小寫英文、數字、「+」、「-」或「.」
+      			// *載具類別為買受人手機條碼(Cellphone)時，請設定手機條碼，第1碼為「/」，後7碼為大寫英文、數字、「+」、「-」或「.」
       			case EcpayCarruerType::Cellphone:
-				if ( !preg_match('/^\/{1}[0-9a-zA-Z+-.]{7}$/', $arParameters['CarruerNum']) )
+				if ( !preg_match('/^\/{1}[0-9A-Z+-.]{7}$/', $arParameters['CarruerNum']) )
 				{
 					array_push($arErrors, "16:Invalid CarruerNum.");
 				}
@@ -2294,6 +2294,11 @@ class ECPay_INVOICE_SEARCH
 		if(isset($arParameters['IIS_Customer_Email']))
 		{
 			$arParameters['IIS_Customer_Email'] = str_replace('+',' ',$arParameters['IIS_Customer_Email']);
+		}
+
+		if(isset($arParameters['IIS_Carruer_Num']))
+		{
+			$arParameters['IIS_Carruer_Num'] = str_replace('+',' ',$arParameters['IIS_Carruer_Num']);
 		}
 
 		return $arParameters ;
