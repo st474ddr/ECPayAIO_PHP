@@ -10,7 +10,7 @@ $nOrder_Id	= isset($_POST['order_id'])	? $_POST['order_id']	: 0 ;
 // 依照訂單編號$nOrder_Id找出訂單資訊
 if(true)
 {
-	$TotalAmount 	= 777 ; 			// 訂單金額
+	$TotalAmount 	= 5 ; 			// 訂單金額
 	$ItemName 	= '手機20元X2#隨身碟60元X1' ; 	// 商品名稱
 }
 

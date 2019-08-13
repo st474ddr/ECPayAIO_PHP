@@ -1,4 +1,24 @@
-.apple-pay-button {
+supports (-webkit-appearance: -apple-pay-button) {
+	.apple-pay-button {
+		display: inline-block;
+		-webkit-appearance: -apple-pay-button;
+	}
+
+	.apple-pay-button-black {
+		-apple-pay-button-style: black;
+	}
+
+	.apple-pay-button-white {
+		-apple-pay-button-style: white;
+	}
+
+	.apple-pay-button-white-with-line {
+		-apple-pay-button-style: white-outline;
+	}
+}
+
+supports not (-webkit-appearance: -apple-pay-button) {
+	.apple-pay-button {
 		display: inline-block;
 		background-size: 100% 60%;
 		background-repeat: no-repeat;
@@ -26,3 +46,4 @@
 		background-color: white;
 		border: .5px solid black;
 	}
+}

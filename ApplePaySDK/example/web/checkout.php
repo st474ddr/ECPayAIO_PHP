@@ -5,19 +5,19 @@
 /*
 * step0 產生apple pay 按鈕
 */
-
+include_once('config.php') ;
 include_once('ECPay.Payment.Applepay.php') ;
 $ecpay_applepay = new Ecpay_ApplePay ;
 
-$ecpay_applepay->Applepay_Button['merchantIdentifier'] 	= 'merchant.ECpay.ECC';
-$ecpay_applepay->Applepay_Button['lable'] 		= 'ecpay store';
-$ecpay_applepay->Applepay_Button['step1_url'] 		= 'verify_vendor.php';
-$ecpay_applepay->Applepay_Button['step2_url'] 		= 'payment_gateway.php';
-$ecpay_applepay->Applepay_Button['debug_mode'] 		= 'yes';
+$ecpay_applepay->Applepay_Button['merchantIdentifier'] 	= APPLEPAY_MERCHANT_IDENTIFIER;
+$ecpay_applepay->Applepay_Button['lable'] 		= APPLEPAY_LABLE;
+$ecpay_applepay->Applepay_Button['step1_url'] 		= STEP1_URL;
+$ecpay_applepay->Applepay_Button['step2_url'] 		= STEP2_URL;
+$ecpay_applepay->Applepay_Button['debug_mode'] 		= DEBUG_MODE;
 
 
-$ecpay_applepay->Applepay_Button['order_id'] 		= date('ymdhis');		// 廠商訂單編號
-$ecpay_applepay->Applepay_Button['amount'] 		= '777'; 		// 訂單總金額
+$ecpay_applepay->Applepay_Button['order_id'] 		= date('YmdHis');		// 廠商訂單編號
+$ecpay_applepay->Applepay_Button['amount'] 		= '5'; 				// 訂單總金額
 
 $ecpay_applepay->applepay_button();
 

@@ -65,16 +65,11 @@ function beginPayment() {
 	        	label: apple_pay_params.lable,
 	        	amount: apple_pay_params.amount 		/* amount為交易金額，商家需自行帶入此次交易的金額 */
 	        }
-	        //,requiredBillingContactFields: ['postalAddress'],
-	        //requiredShippingContactFields: [ "postalAddress","name","phone","email"],
-	        //shippingMethods: []
 	};
-
-	
 
 	/* 建立 ApplePaySession */
 	/* 參考來源: https://developer.apple.com/reference/applepayjs/applepaysession/2320659-applepaysession */
-	var session = new ApplePaySession(2, request);
+	var session = new ApplePaySession(1, request);
 
 	/* 商店驗證事件 */
 	session.onvalidatemerchant = function (event) {
@@ -120,14 +115,6 @@ function beginPayment() {
                         }
                 });
 
-	};
-
-	session.onshippingcontactselected = function (event) {
-		//alert(event.shippingContact);
-
-		console.log(event.shippingContact);
-
-		//session.completeShippingContactSelection(ApplePaySession.STATUS_SUCCESS, [], { label: 'hihi',amount: 77777}, []);
 	};
 
 
