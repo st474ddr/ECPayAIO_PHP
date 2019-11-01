@@ -4,10 +4,10 @@
  */
 
     //載入SDK(路徑可依系統規劃自行調整)
-    include('ECPay.Payment.Integration.Shell.php');
+    include('ECPay.Payment.Integration.php');
     try {
 
-    	$obj = new ECPay_Woo_AllInOne();
+    	$obj = new ECPay_AllInOne();
 
         //服務參數
         $obj->ServiceURL  = "https://payment-stage.ecpay.com.tw/Cashier/QueryTradeInfo/V5"; //服務位置
