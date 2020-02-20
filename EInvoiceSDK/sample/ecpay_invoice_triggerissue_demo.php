@@ -13,7 +13,7 @@ try
 	$ecpay_invoice->HashIV 		= 'q9jcZX8Ib9LM8wYk' ; 
 // 3.寫入發票相關資訊
 	$ecpay_invoice->Send['Tsr'] 	= 'ECPAY201511241023171381912849'; 	// 交易單號
-	$ecpay_invoice->Send['PayType'] = '3'; 					// 交易類別
+	$ecpay_invoice->Send['PayType'] = '2'; 					// 交易類別
 // 4.送出
 	$aReturn_Info = $ecpay_invoice->Check_Out();
 // 5.返回
